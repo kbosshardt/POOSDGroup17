@@ -1,31 +1,35 @@
 package com.poosdseventeen.targetguys.ui;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 
 import com.parse.Parse;
 import com.parse.ParseObject;
 import com.poosdseventeen.targetguys.R;
 
-public class MainActivity extends AppCompatActivity {
+public class SignUpActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_signup);
 
-
+//        // Enable Local Datastore.
+//        Parse.enableLocalDatastore(this);
+//
+//        Parse.initialize(this, "ryKjCwddLi2AQf0O2WGq9R3SJeMmKWLc7vud3BkJ", "jbQl8HDhB4Q4LhUPcuAURRV1tUuQHzBiyCT5fsUG");
+//
+//        ParseObject testObject = new ParseObject("TestObject");
+//        testObject.put("foo", "bar");
+//        testObject.saveInBackground();
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_login, menu);
         return true;
     }
 
@@ -43,18 +47,4 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
-    public void startLogin(View view){
-        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-        //intent.putExtra("key", value);
-        MainActivity.this.startActivity(intent);
-    }
-
-    public void startSignUp(View view){
-        Intent intent = new Intent(MainActivity.this, SignUpActivity.class);
-        MainActivity.this.startActivity(intent);
-    }
-
-
-
 }
