@@ -1,35 +1,38 @@
-package com.poosdseventeen.targetguys.ui;
+package com.poosdseventeen.targetguys;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.parse.Parse;
+import com.parse.ParseAnalytics;
 import com.parse.ParseObject;
-import com.poosdseventeen.targetguys.R;
+import com.parse.ParseUser;
 
-public class LoginActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_home);
 
-        // Enable Local Datastore.
-        Parse.enableLocalDatastore(this);
 
-        Parse.initialize(this, "ryKjCwddLi2AQf0O2WGq9R3SJeMmKWLc7vud3BkJ", "jbQl8HDhB4Q4LhUPcuAURRV1tUuQHzBiyCT5fsUG");
-
-        ParseObject testObject = new ParseObject("TestObject");
-        testObject.put("foo", "bar");
-        testObject.saveInBackground();
+        // Check if user is logged in
+        ParseUser currentUser = ParseUser.getCurrentUser();
+        if(currentUser == null) {
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+            finish();
+        }
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_login, menu);
+        getMenuInflater().inflate(R.menu.menu_home, menu);
         return true;
     }
 
@@ -46,5 +49,15 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+
+    public void logout(final View v){
+        ParseUser currentUser = ParseUser.getCurrentUser();
+        currentUser.logOut();
+
+        Intent intent = new Intent(HomeActivity.this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

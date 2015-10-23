@@ -1,10 +1,8 @@
-package com.poosdseventeen.targetguys.ui;
+package com.poosdseventeen.targetguys;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-
-import com.poosdseventeen.targetguys.R;
 
 /**
  * Created by Kourtney on 10/17/15.
