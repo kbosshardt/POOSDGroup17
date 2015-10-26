@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.facebook.appevents.AppEventsLogger;
+
 /**
  * Created by Kourtney on 10/17/15.
  */
@@ -35,5 +37,17 @@ public class SplashScreen extends Activity {
         // TODO Auto-generated method stub
         super.onPause();
         finish();
+
+        // Logs 'app deactivate' App Event.
+        AppEventsLogger.deactivateApp(this);
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // Logs 'install' and 'app activate' App Events.
+        AppEventsLogger.activateApp(this);
     }
 }
