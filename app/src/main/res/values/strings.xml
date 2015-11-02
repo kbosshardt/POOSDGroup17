@@ -20,6 +20,7 @@
     <string name="alreadyHaveAccountButton">Already have an account? Log In</string>
     <string name="dontHaveAccountButton">Dont have an account yet? Sign In</string>
     <string name="logout">Log Out</string>
+    <string name="searchButton">Search</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_interest">InterestActivity</string>
