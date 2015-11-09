@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Continue"
+        android:textColor="#ffffffff"
+        android:textSize="@dimen/abc_text_size_large_material"
+        android:id="@+id/continueBtn"
+        android:layout_marginTop="20dp"
+        android:background="#ff3498db"
+        android:height="70dp"
+        />
+</LinearLayout>

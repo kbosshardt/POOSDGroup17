@@ -7,6 +7,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,6 +26,7 @@ public class CategoryActivity extends AppCompatActivity {
     private ListView categoryListView;
     private TextView emptyTextView;
     private Category[] categoryList;
+    private Button continueButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +54,16 @@ public class CategoryActivity extends AppCompatActivity {
                 Toast.makeText(CategoryActivity.this, categoryList[position].getCategoryName(), Toast.LENGTH_LONG );
             }
         });
+
+        // Add a footer if there are categories
+        if( categoryList.length > 0  )
+        {
+            // Puts a button at the footer of the list only if categories are available
+            LinearLayout footerLayout = (LinearLayout) getLayoutInflater().inflate( R.layout.activity_category_footer, null);
+            continueButton = (Button) footerLayout.findViewById(R.id.continueBtn);
+            categoryListView.addFooterView( footerLayout );
+        }
+
     }
 
     @Override
@@ -94,11 +107,13 @@ public class CategoryActivity extends AppCompatActivity {
         categorySet.put("Social","#40E26A6A");
         categorySet.put("Technology","#40D64541");
         categorySet.put("Social","#4086E2D5");
-        categorySet.put("Social","#40336E7B");
+        categorySet.put("Spiritual","#40336E7B");
         categorySet.put("Women","#408E44AD");
 
         Category[] categories = new Category[categorySet.size()];
+
         int pos = 0;
+
         for (Map.Entry<String,String> entry : categorySet.entrySet() )
         {
             Log.d("CategoryActivity", entry.getKey() );

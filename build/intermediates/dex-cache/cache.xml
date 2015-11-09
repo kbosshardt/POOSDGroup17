@@ -2,39 +2,11 @@
 <items version="2" >
 
     <item
-        jar="/Users/jamesBryant/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.2.1/44780c2cf98f6a3cf4e77f1234d644758b329201/bolts-android-1.2.1.jar"
+        jar="/Users/jamesBryant/Development/ucf/POOSDGroup17/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/22.0.0/jars/classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="44780c2cf98f6a3cf4e77f1234d644758b329201">
-        <dex dex="/Users/jamesBryant/Development/ucf/POOSDGroup17/app/build/intermediates/pre-dexed/debug/bolts-android-1.2.1-8bfe2dfd5c4ac243bfce2787a99e5d7e0566c8f5.jar" />
-    </item>
-    <item
-        jar="/Users/jamesBryant/Development/ucf/POOSDGroup17/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
-        <dex dex="/Users/jamesBryant/Development/ucf/POOSDGroup17/app/build/intermediates/pre-dexed/debug/classes-42cb6415708a213d5ab7ed7616250c96c5962f28.jar" />
-    </item>
-    <item
-        jar="/Users/jamesBryant/Development/ucf/POOSDGroup17/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/libs/internal_impl-22.2.0.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
-        <dex dex="/Users/jamesBryant/Development/ucf/POOSDGroup17/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.0-5e7cb453654323040e110d76e45c2c556a5bf4d3.jar" />
-    </item>
-    <item
-        jar="/Users/jamesBryant/Development/ucf/POOSDGroup17/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/22.0.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="11842de6a309c447b3a3d60d73ad637a87c58994">
-        <dex dex="/Users/jamesBryant/Development/ucf/POOSDGroup17/app/build/intermediates/pre-dexed/debug/classes-82d79780f0aee68e76c8f04a9827b31887240104.jar" />
-    </item>
-    <item
-        jar="/Users/jamesBryant/.gradle/caches/modules-2/files-2.1/com.parse/parse-android/1.10.3/36366e460af2c0f224bb8f70b64e3302f638b138/parse-android-1.10.3.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="36366e460af2c0f224bb8f70b64e3302f638b138">
-        <dex dex="/Users/jamesBryant/Development/ucf/POOSDGroup17/app/build/intermediates/pre-dexed/debug/parse-android-1.10.3-57aaaf4a815eb3839ad85236db53255330c3c922.jar" />
+        sha1="c6d79137693d494dee16372d3921f919eb724ced">
+        <dex dex="/Users/jamesBryant/Development/ucf/POOSDGroup17/app/build/intermediates/pre-dexed/debug/classes-7f4cc33d06ccbf62f986add50595326875a0a154.jar" />
     </item>
     <item
         jar="/Users/jamesBryant/Development/ucf/POOSDGroup17/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/jars/classes.jar"
@@ -44,6 +16,13 @@
         <dex dex="/Users/jamesBryant/Development/ucf/POOSDGroup17/app/build/intermediates/pre-dexed/debug/classes-ad3ac2c675906ebfd3ebc4058bb8bab8f43580cd.jar" />
     </item>
     <item
+        jar="/Users/jamesBryant/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.2.1/44780c2cf98f6a3cf4e77f1234d644758b329201/bolts-android-1.2.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="44780c2cf98f6a3cf4e77f1234d644758b329201">
+        <dex dex="/Users/jamesBryant/Development/ucf/POOSDGroup17/app/build/intermediates/pre-dexed/debug/bolts-android-1.2.1-8bfe2dfd5c4ac243bfce2787a99e5d7e0566c8f5.jar" />
+    </item>
+    <item
         jar="/Users/jamesBryant/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.0/support-annotations-22.2.0.jar"
         jumboMode="false"
         revision="22.0.1"
@@ -51,11 +30,32 @@
         <dex dex="/Users/jamesBryant/Development/ucf/POOSDGroup17/app/build/intermediates/pre-dexed/debug/support-annotations-22.2.0-2485a7e2a118688bfe70419e9b5b18cb2102f9f2.jar" />
     </item>
     <item
-        jar="/Users/jamesBryant/Development/ucf/POOSDGroup17/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/22.0.0/jars/classes.jar"
+        jar="/Users/jamesBryant/Development/ucf/POOSDGroup17/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/22.0.0/jars/classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="c6d79137693d494dee16372d3921f919eb724ced">
-        <dex dex="/Users/jamesBryant/Development/ucf/POOSDGroup17/app/build/intermediates/pre-dexed/debug/classes-7f4cc33d06ccbf62f986add50595326875a0a154.jar" />
+        sha1="11842de6a309c447b3a3d60d73ad637a87c58994">
+        <dex dex="/Users/jamesBryant/Development/ucf/POOSDGroup17/app/build/intermediates/pre-dexed/debug/classes-82d79780f0aee68e76c8f04a9827b31887240104.jar" />
+    </item>
+    <item
+        jar="/Users/jamesBryant/Development/ucf/POOSDGroup17/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/libs/internal_impl-22.2.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
+        <dex dex="/Users/jamesBryant/Development/ucf/POOSDGroup17/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.0-5e7cb453654323040e110d76e45c2c556a5bf4d3.jar" />
+    </item>
+    <item
+        jar="/Users/jamesBryant/Development/ucf/POOSDGroup17/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
+        <dex dex="/Users/jamesBryant/Development/ucf/POOSDGroup17/app/build/intermediates/pre-dexed/debug/classes-42cb6415708a213d5ab7ed7616250c96c5962f28.jar" />
+    </item>
+    <item
+        jar="/Users/jamesBryant/.gradle/caches/modules-2/files-2.1/com.parse/parse-android/1.10.3/36366e460af2c0f224bb8f70b64e3302f638b138/parse-android-1.10.3.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="36366e460af2c0f224bb8f70b64e3302f638b138">
+        <dex dex="/Users/jamesBryant/Development/ucf/POOSDGroup17/app/build/intermediates/pre-dexed/debug/parse-android-1.10.3-57aaaf4a815eb3839ad85236db53255330c3c922.jar" />
     </item>
 
 </items>

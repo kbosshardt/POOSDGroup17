@@ -15,7 +15,7 @@
         android:dividerHeight="1dp"
         android:layout_marginBottom="10dp"
         android:height="0dp"
-
+        android:layout_weight="1"
         />
 
     <TextView
@@ -25,5 +25,8 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:text="@string/no_interest_category_data"/>
+
+
+    <!-- Go to sub categories -->
 
 </RelativeLayout>
