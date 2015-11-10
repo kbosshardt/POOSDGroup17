@@ -20,4 +20,12 @@
         android:text="@string/logout"
         android:onClick="logout"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/interests"
+        android:text="@string/view_interests"
+        android:onClick="viewInterests"/>
+
 </LinearLayout>

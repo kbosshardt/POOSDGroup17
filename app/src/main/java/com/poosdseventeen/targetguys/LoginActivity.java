@@ -1,9 +1,9 @@
 package com.poosdseventeen.targetguys;
 
 
-import android.support.v7.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
@@ -15,7 +15,7 @@ import com.parse.ParseUser;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private EditText mUsernameField;
+    private EditText mEmailField;
     private EditText mPasswordField;
     private TextView mErrorField;
 
@@ -24,10 +24,13 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        mUsernameField = (EditText) findViewById(R.id.userField);
+        mEmailField = (EditText) findViewById(R.id.userField);
         mPasswordField = (EditText) findViewById(R.id.passField);
         mErrorField = (TextView) findViewById(R.id.error_messages);
     }
+
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -38,7 +41,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public void signIn(final View v){
         v.setEnabled(false);
-        ParseUser.logInInBackground(mUsernameField.getText().toString(), mPasswordField.getText().toString(), new LogInCallback() {
+        ParseUser.logInInBackground(mEmailField.getText().toString(), mPasswordField.getText().toString(), new LogInCallback() {
             @Override
             public void done(ParseUser user, ParseException e) {
                 if (user != null) {
@@ -47,7 +50,7 @@ public class LoginActivity extends AppCompatActivity {
                     finish();
                 } else {
                     // Signup failed. Look at the ParseException to see what happened.
-                    switch(e.getCode()){
+                    switch (e.getCode()) {
                         case ParseException.USERNAME_TAKEN:
                             mErrorField.setText("Sorry, this username has already been taken.");
                             break;
@@ -58,7 +61,7 @@ public class LoginActivity extends AppCompatActivity {
                             mErrorField.setText("Sorry, you must supply a password to register.");
                             break;
                         case ParseException.OBJECT_NOT_FOUND:
-                            mErrorField.setText("Sorry, those credentials were invalid.");
+                            mErrorField.setText("Wrong username or passowrd.");
                             break;
                         default:
                             mErrorField.setText(e.getLocalizedMessage());
@@ -69,6 +72,9 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
+
+
 
     public void showRegistration(View v) {
         Intent intent = new Intent(this, SignUpActivity.class);

@@ -85,6 +85,12 @@ tools:context=".SignUpActivity" >
 
     </LinearLayout>
 
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/login_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="signInFacebook"/>
+
 
     <Button
         android:id="@+id/signInButton"

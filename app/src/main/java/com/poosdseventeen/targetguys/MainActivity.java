@@ -1,12 +1,11 @@
 package com.poosdseventeen.targetguys;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
 
 import com.parse.ParseUser;
 
@@ -51,12 +50,12 @@ public class MainActivity extends AppCompatActivity {
     public void startLogin(View view){
         Intent intent = new Intent(MainActivity.this, LoginActivity.class);
         //intent.putExtra("key", value);
-        MainActivity.this.startActivity(intent);
+        startActivity(intent);
     }
 
     public void startSignUp(View view){
         Intent intent = new Intent(MainActivity.this, SignUpActivity.class);
-        MainActivity.this.startActivity(intent);
+        startActivity(intent);
     }
 
 

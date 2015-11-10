@@ -1,17 +1,22 @@
 package com.poosdseventeen.targetguys;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SwitchCompat;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.CompoundButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
+import com.parse.ParseObject;
+import com.parse.ParseRelation;
+import com.parse.ParseUser;
+
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -20,10 +25,11 @@ import adapters.CategoryAdapter;
 import interests.Category;
 
 
-public class CategoryActivity extends AppCompatActivity {
+public class CategoryActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener {
     private ListView categoryListView;
     private TextView emptyTextView;
     private Category[] categoryList;
+    private SwitchCompat switch_compat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +44,7 @@ public class CategoryActivity extends AppCompatActivity {
         //final ListView listView = (ListView) findViewById(R.id.list)
         categoryListView = (ListView) findViewById(android.R.id.list);
         emptyTextView = (TextView) findViewById(android.R.id.empty);
+        switch_compat = (SwitchCompat) findViewById(R.id.categorySelect);
 
 
         //Set adapter on the listview
@@ -48,7 +55,7 @@ public class CategoryActivity extends AppCompatActivity {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(CategoryActivity.this, categoryList[position].getCategoryName(), Toast.LENGTH_LONG );
+                Toast.makeText(CategoryActivity.this, categoryList[position].getCategoryName(), Toast.LENGTH_LONG ).show();
             }
         });
     }
@@ -78,6 +85,8 @@ public class CategoryActivity extends AppCompatActivity {
     /* Temporary Category list */
     public Category[] inflateCategoryList()
     {
+
+
         Map<String, String> categorySet = new HashMap<String, String>();
         categorySet.put("Books & Writing","#401abc9c");
         categorySet.put("Business and Career","#40D24D57");
@@ -108,5 +117,23 @@ public class CategoryActivity extends AppCompatActivity {
         Log.d("CategoryActivity", Arrays.toString(categories));
 
         return categories;
+    }
+
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        switch (buttonView.getId()) {
+            case R.id.categorySelect:
+                addInterestToUser();
+                break;
+        }
+    }
+
+    public void addInterestToUser(){
+        ParseObject interest = new ParseObject("Interest");
+        interest.put("name", "Fitness");
+        ParseUser user = ParseUser.getCurrentUser();
+        ParseRelation<ParseObject> relation = user.getRelation("likes");
+        relation.add(interest);
+        user.saveInBackground();
     }
 }

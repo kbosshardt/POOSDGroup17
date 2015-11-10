@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TargetGuys</string>
+    <string name="app_name">Target Guys</string>
 
     <string name="action_settings">Settings</string>
     <string name="title_activity_login">LoginActivity</string>
@@ -21,9 +21,12 @@
     <string name="dontHaveAccountButton">Dont have an account yet? Sign In</string>
     <string name="logout">Log Out</string>
 
-    <string name="hello_world">Hello world!</string>
+    <string name="facebook_app_id">755245647932115</string>
     <string name="title_activity_interest">InterestActivity</string>
     <string name="action_search">Search</string>
     <string name="no_interest_category_data">No categories to display.</string>
+    <string name="title_activity_user_details">UserDetailsActivity</string>
+    <string name="gender">Gender</string>
+    <string name="view_interests">View Interests</string>
 
 </resources>
