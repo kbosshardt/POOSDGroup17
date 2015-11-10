@@ -1,8 +1,6 @@
 package adapters;
 
 import android.content.Context;
-import android.graphics.Color;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,8 +8,6 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.poosdseventeen.targetguys.R;
-
-import java.util.Arrays;
 
 import interests.Category;
 
@@ -56,7 +52,7 @@ public class CategoryAdapter extends BaseAdapter {
         {
             convertView = LayoutInflater
                     .from(mContext)
-                    .inflate(R.layout.category_list_item, null);
+                    .inflate(R.layout.category_parent_layout, null);
             holder = new ViewHolder();
             holder.categoryNameLabel = (TextView) convertView.findViewById(R.id.categoryNameLabel);
             convertView.setTag( holder );
@@ -71,7 +67,7 @@ public class CategoryAdapter extends BaseAdapter {
 
         holder.categoryNameLabel.setText(category.getCategoryName());
 
-        convertView.setBackgroundColor(Color.parseColor( category.getCategoryColor()));
+
         return convertView;
 
     } // end getView

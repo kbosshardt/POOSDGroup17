@@ -1,5 +1,6 @@
 package com.poosdseventeen.targetguys;
 
+import android.app.ExpandableListActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ExpandableListView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -19,7 +21,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import adapters.CategoryAdapter;
+import adapters.ExpandableCategoryListAdapter;
 import interests.Category;
+import interests.Interest;
 
 
 public class CategoryActivity extends AppCompatActivity {
@@ -27,6 +31,8 @@ public class CategoryActivity extends AppCompatActivity {
     private TextView emptyTextView;
     private Category[] categoryList;
     private Button continueButton;
+    private ExpandableListView mExpandableListView;
+    private ExpandableCategoryListAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +44,7 @@ public class CategoryActivity extends AppCompatActivity {
         // This is primarily for UI layouts
         categoryList = inflateCategoryList();
 
+        /* Gonna try sometning new below this....
         //final ListView listView = (ListView) findViewById(R.id.list)
         categoryListView = (ListView) findViewById(android.R.id.list);
         emptyTextView = (TextView) findViewById(android.R.id.empty);
@@ -62,7 +69,27 @@ public class CategoryActivity extends AppCompatActivity {
             LinearLayout footerLayout = (LinearLayout) getLayoutInflater().inflate( R.layout.activity_category_footer, null);
             continueButton = (Button) footerLayout.findViewById(R.id.continueBtn);
             categoryListView.addFooterView( footerLayout );
+        }*/
+
+        mExpandableListView = (ExpandableListView) findViewById(R.id.expandableCategoryList);
+        mAdapter = new ExpandableCategoryListAdapter( this, categoryList );
+        mExpandableListView.setAdapter( mAdapter );
+
+        mExpandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+            @Override
+            public void onGroupExpand(int groupPosition) {
+                Log.v("CA*", categoryList[groupPosition].getCategoryName() + " groupposition: " + groupPosition);
+                Log.v("\tSubInterest", categoryList[groupPosition].mInterestOptions.size() + " groupposition: " + groupPosition);
+//                Toast.makeText(CategoryActivity.this,
+//                        categoryList[groupPosition]
+//                                .mInterestOptions
+//                                .get(groupPosition-1).getName(), Toast.LENGTH_LONG ).show();
+            }
+        });
+        {
+
         }
+
 
     }
 
@@ -91,33 +118,40 @@ public class CategoryActivity extends AppCompatActivity {
     /* Temporary Category list */
     public Category[] inflateCategoryList()
     {
-        Map<String, String> categorySet = new HashMap<String, String>();
-        categorySet.put("Books & Writing","#401abc9c");
-        categorySet.put("Business and Career","#40D24D57");
-        categorySet.put("Crafts & Hobbies","#40E67E22");
-        categorySet.put("Education","#406C7A89");
-        categorySet.put("Fitness","#40049372");
-        categorySet.put("Food & Drink","#40F5D76E");
-        categorySet.put("Games (Video and Otherwise)","#55F9690E");
-        categorySet.put("Men","#40C8F7C5");
-        categorySet.put("Music","#4067809F");
-        categorySet.put("Outdoors","#40C5EFF7");
-        categorySet.put("Pets","#40913D88");
-        categorySet.put("Photo & Films","#40AEA8D3");
-        categorySet.put("Social","#40E26A6A");
-        categorySet.put("Technology","#40D64541");
-        categorySet.put("Social","#4086E2D5");
-        categorySet.put("Spiritual","#40336E7B");
-        categorySet.put("Women","#408E44AD");
+        ArrayList<String> categorySet = new ArrayList<String>();
+        categorySet.add("Books & Writing");
+        categorySet.add("Business and Career");
+        categorySet.add("Crafts & Hobbies");
+        categorySet.add("Education");
+        categorySet.add("Fitness");
+        categorySet.add("Food & Drink");
+        categorySet.add("Games (Video and Otherwise)");
+        categorySet.add("Men");
+        categorySet.add("Music");
+        categorySet.add("Outdoors");
+        categorySet.add("Pets");
+        categorySet.add("Photo & Films");
+        categorySet.add("Social");
+        categorySet.add("Technology");
+        categorySet.add("Social");
+        categorySet.add("Spiritual");
+        categorySet.add("Women");
 
         Category[] categories = new Category[categorySet.size()];
 
         int pos = 0;
 
-        for (Map.Entry<String,String> entry : categorySet.entrySet() )
+        for ( String entry : categorySet  )
         {
-            Log.d("CategoryActivity", entry.getKey() );
-            categories[pos++] = new Category( entry.getKey(), entry.getValue() );
+            Category category = new Category( entry );
+
+            for( int j = 0; j < 3; j++ )
+            {
+                category.mInterestOptions.add( new Interest("Interest number " + j) );
+            }
+
+            categories[pos] = category;
+            pos++;
         }
 
         Log.d("CategoryActivity", Arrays.toString(categories));

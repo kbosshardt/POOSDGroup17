@@ -6,7 +6,7 @@
     tools:context="com.poosdseventeen.targetguys.CategoryActivity">
 
 
-
+<!--
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -17,14 +17,24 @@
         android:height="0dp"
         android:layout_weight="1"
         />
+-->
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@android:id/empty"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:text="@string/no_interest_category_data"/>
+    <ExpandableListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/expandableCategoryList"
+        android:divider="#20000000"
+        android:dividerHeight="1dp"
+        android:indicatorLeft="?android:attr/expandableListPreferredChildIndicatorLeft"
+        ></ExpandableListView>
+
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@android:id/empty"-->
+        <!--android:layout_centerVertical="true"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:text="@string/no_interest_category_data"/>-->
 
 
     <!-- Go to sub categories -->
