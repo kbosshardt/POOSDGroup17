@@ -18,16 +18,18 @@
         tools:context=".ProfileActivity"
         android:layout_gravity="center_horizontal">
 
-        <ImageView
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:id="@+id/profilePicture"
             android:src="@mipmap/androidprofileimage"
             android:layout_gravity="center_horizontal|top"
             android:onClick="getNewProfilePicture"
-            tools:ignore="ContentDescription" />
-
-
+            tools:ignore="ContentDescription"
+            app:civ_border_width="2dp"
+            app:civ_border_color="#FF000000" />
 
     </FrameLayout>
 

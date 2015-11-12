@@ -32,4 +32,5 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:22.0.+'
     compile 'com.facebook.android:facebook-android-sdk:4.7.0'
     compile files('src/main/libs/ParseFacebookUtilsV4-1.10.3.jar')
+    compile 'de.hdodenhof:circleimageview:2.0.0'
 }
