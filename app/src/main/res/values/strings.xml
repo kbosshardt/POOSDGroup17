@@ -17,6 +17,7 @@
     <string name="email_label">Email:</string>
     <string name="username_label">Username:</string>
     <string name="password_label">Password:</string>
+    <string name="gender_label">Gender:</string>
     <string name="alreadyHaveAccountButton">Already have an account? Log In</string>
     <string name="dontHaveAccountButton">Dont have an account yet? Sign In</string>
     <string name="logout">Log Out</string>
@@ -28,5 +29,20 @@
     <string name="title_activity_user_details">UserDetailsActivity</string>
     <string name="gender">Gender</string>
     <string name="view_interests">View Interests</string>
+    <string name="title_activity_profile">ProfileActivity</string>
+
+    <string name="hello_world">Hello world!</string>
+
+    <!--Gender spinner options:-->
+    <string-array name="gender_array">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+
+    <!--Options for getting a new profile picture:-->
+    <string-array name="get_profile_picture_array">
+        <item>Take photo</item>
+        <item>Get existing photo</item>
+    </string-array>
 
 </resources>

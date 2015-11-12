@@ -8,8 +8,11 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,7 +26,7 @@ import com.parse.SignUpCallback;
 import java.util.Arrays;
 import java.util.List;
 
-public class SignUpActivity extends Activity {
+public class SignUpActivity extends Activity{
 
     private EditText nameText;
     private EditText emailText;
@@ -32,6 +35,7 @@ public class SignUpActivity extends Activity {
     private TextView mErrorField;
     private Button SignUpButton;
     List<String> permissions;
+    private String gender;
 
 
 
@@ -51,6 +55,32 @@ public class SignUpActivity extends Activity {
 
 
         ParseAnalytics.trackAppOpenedInBackground(getIntent());
+
+
+
+        //Gender spinner initialization
+        Spinner spinner = (Spinner) findViewById(R.id.gender_spinner);
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.gender_array, android.R.layout.simple_spinner_item);
+        // Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Apply the adapter to the spinner
+        spinner.setAdapter(adapter);
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view,
+                                       int position, long id) {
+                gender = (String) parent.getItemAtPosition(position);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // TODO Auto-generated method stub
+            }
+        });
+
+        // Finished Gender Spinner
 
     }
 
@@ -94,9 +124,11 @@ public class SignUpActivity extends Activity {
 
         // create new user
         ParseUser user = new ParseUser();
+        user.put("name", nameText.getText().toString());
         user.setUsername(usernameText.getText().toString());
         user.setPassword(passwordText.getText().toString());
         user.setEmail(emailText.getText().toString());
+        user.put("gender", gender);
         mErrorField.setText("");
 
         user.signUpInBackground(new SignUpCallback() {
@@ -220,4 +252,7 @@ public class SignUpActivity extends Activity {
         else
             return false;
     }
+
+
+
 }

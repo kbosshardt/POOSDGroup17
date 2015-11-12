@@ -16,6 +16,7 @@ tools:context=".SignUpActivity" >
         android:gravity="center_vertical"
         android:orientation="vertical" >
 
+
         <TextView
             android:id="@+id/error_messages"
             android:layout_width="wrap_content"
@@ -74,6 +75,18 @@ tools:context=".SignUpActivity" >
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPassword" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/gender_label"/>
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/gender_spinner"
+            android:layout_gravity="center_horizontal"
+            />
 
         <Button
             android:id="@+id/signUpButton"
