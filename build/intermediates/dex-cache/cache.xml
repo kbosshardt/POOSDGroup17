@@ -2,32 +2,11 @@
 <items version="2" >
 
     <item
-        jar="/Users/Kourtney/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.3.0/27cabf3558be23a89f054334dd92512645ad34d9/bolts-android-1.3.0.jar"
+        jar="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/exploded-aar/de.hdodenhof/circleimageview/2.0.0/jars/classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="27cabf3558be23a89f054334dd92512645ad34d9">
-        <dex dex="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/pre-dexed/debug/bolts-android-1.3.0-1789519fc356d87205337873ea64dc4bf752d53c.jar" />
-    </item>
-    <item
-        jar="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/src/main/libs/ParseFacebookUtilsV4-1.10.3.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="30f5f2c4ac77cfa3b5584766e3e40503bd927ae9">
-        <dex dex="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/pre-dexed/debug/ParseFacebookUtilsV4-1.10.3-05620becc5b221ca47fcafa68ce3051b85efd8f4.jar" />
-    </item>
-    <item
-        jar="/Users/Kourtney/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-applinks/1.3.0/bc535105332645408ef5f1380215cc954b842178/bolts-applinks-1.3.0.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="bc535105332645408ef5f1380215cc954b842178">
-        <dex dex="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/pre-dexed/debug/bolts-applinks-1.3.0-37b36c953318ca752734f7a8f5ed614cc989a01a.jar" />
-    </item>
-    <item
-        jar="/Users/Kourtney/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.3.0/8a62fd16fcc1c06f284fc98e6cbded2a5af1dd4c/bolts-tasks-1.3.0.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="8a62fd16fcc1c06f284fc98e6cbded2a5af1dd4c">
-        <dex dex="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/pre-dexed/debug/bolts-tasks-1.3.0-792736ac1aa0e69f8717d775fa38a04797ec540e.jar" />
+        sha1="031e8b3ab2df4ab43b1017f84417d7e10dfbb8d2">
+        <dex dex="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/pre-dexed/debug/classes-3b17dd8c9e41cc20e28a355df1905bab3ec0ff12.jar" />
     </item>
 
 </items>
