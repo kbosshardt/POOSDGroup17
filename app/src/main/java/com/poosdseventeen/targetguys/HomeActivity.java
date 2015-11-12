@@ -1,15 +1,12 @@
 package com.poosdseventeen.targetguys;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.parse.Parse;
-import com.parse.ParseAnalytics;
-import com.parse.ParseObject;
 import com.parse.ParseUser;
 
 public class HomeActivity extends AppCompatActivity {
@@ -57,6 +54,18 @@ public class HomeActivity extends AppCompatActivity {
         currentUser.logOut();
 
         Intent intent = new Intent(HomeActivity.this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    public void viewInterests(View v){
+        Intent intent = new Intent(HomeActivity.this, CategoryActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    public void viewProfile(View v){
+        Intent intent = new Intent(HomeActivity.this, ProfileActivity.class);
         startActivity(intent);
         finish();
     }
