@@ -24,7 +24,7 @@ repositories {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:22.2.0'
     compile 'com.parse.bolts:bolts-android:1.+'
     compile 'com.parse:parse-android:1.+'
@@ -33,4 +33,5 @@ dependencies {
     compile 'com.facebook.android:facebook-android-sdk:4.7.0'
     compile files('src/main/libs/ParseFacebookUtilsV4-1.10.3.jar')
     compile 'de.hdodenhof:circleimageview:2.0.0'
+    compile 'com.google.android.gms:play-services:7.8.0'
 }

@@ -61,6 +61,13 @@ public class HomeActivity extends AppCompatActivity {
         finish();
     }
 
+
+    public void searchMap(View v){
+        Intent intent = new Intent(HomeActivity.this, SearchMap.class);
+        startActivity(intent);
+        finish();
+    }
+
     public void viewInterests(View v){
         Intent intent = new Intent(HomeActivity.this, CategoryActivity.class);
         startActivity(intent);
