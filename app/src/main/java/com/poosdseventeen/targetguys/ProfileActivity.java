@@ -22,6 +22,8 @@ import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseUser;
 
+import java.io.ByteArrayOutputStream;
+
 public class ProfileActivity extends AppCompatActivity {
 
     private String userName;
@@ -32,8 +34,11 @@ public class ProfileActivity extends AppCompatActivity {
     private TextView nameTextView;
     private TextView emailTextView;
     private TextView genderTextView;
+    String mCurrentPhotoPath;
+    ParseFile photoFile;
 
-    private static int RESULT_LOAD_IMAGE = 1;
+    static final int RESULT_LOAD_IMAGE = 1;
+    static final int REQUEST_TAKE_PHOTO = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,11 +131,12 @@ public class ProfileActivity extends AppCompatActivity {
         finish();
     }
 
-
+    // option to change picture
     public void getNewProfilePicture(View v){
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setMessage("Change Profile Picture");
 
+        // get an existing photo form the gallery
         alertDialogBuilder.setPositiveButton("Get existing photo", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface arg0, int arg1) {
@@ -142,10 +148,16 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
+        // get new photo from camera
         alertDialogBuilder.setNegativeButton("Take photo", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Toast.makeText(ProfileActivity.this, "You clicked take photo button", Toast.LENGTH_LONG).show();
+
+                Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
+
+
             }
         });
 
@@ -154,25 +166,76 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
 
-    // get results from gallery
+
+
+
+    // get results from gallery or camera
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && null != data) {
-            Uri selectedImage = data.getData();
-            String[] filePathColumn = {MediaStore.Images.Media.DATA};
 
-            Cursor cursor = getContentResolver().query(selectedImage,
-                    filePathColumn, null, null, null);
-            cursor.moveToFirst();
+        if (resultCode == RESULT_OK) {
 
-            int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-            String picturePath = cursor.getString(columnIndex);
-            cursor.close();
+            if (requestCode == RESULT_LOAD_IMAGE && null != data) {
+                Uri selectedImage = data.getData();
+                String[] filePathColumn = {MediaStore.Images.Media.DATA};
 
-            userPicture.setImageBitmap(BitmapFactory.decodeFile(picturePath));
+                Cursor cursor = getContentResolver().query(selectedImage,
+                        filePathColumn, null, null, null);
+                cursor.moveToFirst();
+
+                int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+                String picturePath = cursor.getString(columnIndex);
+                cursor.close();
+
+                Bitmap thumbnail = BitmapFactory.decodeFile(picturePath);
+                userPicture.setImageBitmap(thumbnail);
+                saveImage(thumbnail);
+
+                saveImage(thumbnail);
+            } else if (requestCode == REQUEST_TAKE_PHOTO) {
+                Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
+
+                saveImage(thumbnail);
+
+//                File destination = new File(Environment.getExternalStorageDirectory(),
+//                        System.currentTimeMillis() + ".png");
+//                FileOutputStream fo;
+//                try {
+//                    destination.createNewFile();
+//                    fo = new FileOutputStream(destination);
+//                    fo.write(bytes.toByteArray());
+//                    fo.close();
+//                } catch (FileNotFoundException e) {
+//                    e.printStackTrace();
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+                userPicture.setImageBitmap(thumbnail);
+                saveImage(thumbnail);
+            }
 
         }
+
+
+
     }
+
+
+    private void saveImage(Bitmap thumbnail) {
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        thumbnail.compress(Bitmap.CompressFormat.PNG, 100, bytes);
+
+
+        byte[] scaledData = bytes.toByteArray();
+
+        // Save the scaled image to Parse
+        photoFile = new ParseFile("ProfilePicture.PNG", scaledData);
+        photoFile.saveInBackground();
+        ParseUser currentUser = ParseUser.getCurrentUser();
+        currentUser.put("profilePicture", photoFile);
+        currentUser.saveInBackground();
+    }
+
 }
