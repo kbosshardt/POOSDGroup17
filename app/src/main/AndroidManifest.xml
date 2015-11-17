@@ -2,16 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.poosdseventeen.targetguys" >
 
-
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
-    <!--Camera Permissions-->
-    <uses-feature android:name="android.hardware.camera"
-        android:required="false" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-        android:maxSdkVersion="18" />
-
     <application
         android:name=".ParseApplication"
         android:allowBackup="true"
@@ -45,14 +35,14 @@
         </activity>
         <activity
             android:name=".CategoryActivity"
-            android:label="@string/title_activity_interest" >
-            /** Put this back into main activity when finished - James **/
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
+            android:label="@string/title_activity_interest"
+            android:parentActivityName=".HomeActivity" >
 
+            <!-- The meta-data element is needed for versions lower than 4.1 -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HomeActivity" />
 
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
         </activity>
         <activity
             android:name=".SearchMap"
@@ -76,25 +66,58 @@
         <activity
             android:name=".ProfileActivity"
             android:label="@string/title_activity_profile"
-            android:parentActivityName="com.poosdseventeen.targetguys.HomeActivity" >
+            android:parentActivityName=".HomeActivity" >
+
             <!-- The meta-data element is needed for versions lower than 4.1 -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".HomeActivity" />>
+                android:value=".HomeActivity" />
+>
         </activity>
 
-        <!--Permissions-->
+        <!-- Permissions -->
 
-        <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+        <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
         <uses-permission android:name="android.permission.INTERNET" />
+        <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
         <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
         <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+        <uses-permission android:name="package.name.permission.MAPS_RECEIVE" />
+        <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
-        <!--Google MAP API key-->
+        <!-- Camera Permissions -->
+        <uses-feature
+            android:name="android.hardware.camera"
+            android:required="false" />
+
+        <!-- Google MAP API key -->
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyCn80HXcvSNmxmJ_wgGjT8WW6MrMFFXZBU"/>
+            android:value="AIzaSyCn80HXcvSNmxmJ_wgGjT8WW6MrMFFXZBU" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
 
+        <permission
+            android:name="package.name.permission.MAPS_RECEIVE"
+            android:protectionLevel="signature" />
+
+        <uses-feature
+            android:glEsVersion="0x00020000"
+            android:required="true" />
+
+        <uses-library android:name="com.google.android.maps" />
+
+        <activity
+            android:name=".DistanceActivity"
+            android:label="@string/title_activity_distance"
+            android:parentActivityName=".CategoryActivity" >
+
+            <!-- The meta-data element is needed for versions lower than 4.1 -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".CategoryActivity" />>
+        </activity>
     </application>
 
 </manifest>

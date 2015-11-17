@@ -64,14 +64,35 @@ public class HomeActivity extends AppCompatActivity {
 
     public void searchMap(View v){
         Intent intent = new Intent(HomeActivity.this, SearchMap.class);
+
+        // Use TaskStackBuilder to build the back stack and get the PendingIntent
+        PendingIntent pendingIntent =
+                TaskStackBuilder.create(this)
+                        // add all of DetailsActivity's parents to the stack,
+                        // followed by DetailsActivity itself
+                        .addNextIntentWithParentStack(intent).getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+        builder.setContentIntent(pendingIntent);
+
+
         startActivity(intent);
-        finish();
     }
 
     public void viewInterests(View v){
         Intent intent = new Intent(HomeActivity.this, CategoryActivity.class);
+        // Use TaskStackBuilder to build the back stack and get the PendingIntent
+        PendingIntent pendingIntent =
+                TaskStackBuilder.create(this)
+                        // add all of DetailsActivity's parents to the stack,
+                        // followed by DetailsActivity itself
+                        .addNextIntentWithParentStack(intent).getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+        builder.setContentIntent(pendingIntent);
+
+
         startActivity(intent);
-        finish();
     }
 
     public void viewProfile(View v){
@@ -90,4 +111,6 @@ public class HomeActivity extends AppCompatActivity {
 
         startActivity(intent);
     }
+
+
 }

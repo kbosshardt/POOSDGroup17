@@ -79,4 +79,5 @@
         android:id="@+id/profile"
         android:text="View Profile"
         android:onClick="viewProfile"/>
+
 </LinearLayout>

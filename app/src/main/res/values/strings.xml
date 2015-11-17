@@ -46,5 +46,8 @@
         <item>Take photo</item>
         <item>Get existing photo</item>
     </string-array>
+    <string name="title_activity_test_interests">TestInterestsActivity</string>
+    <string name="title_activity_main_category">MainCategoryActivity</string>
+    <string name="title_activity_distance">DistanceActivity</string>
 
 </resources>
