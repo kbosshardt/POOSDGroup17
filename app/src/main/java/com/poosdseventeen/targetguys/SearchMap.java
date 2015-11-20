@@ -51,9 +51,24 @@ public class SearchMap extends AppCompatActivity {
         // Enable MyLocation Layer of Google Map
         googleMap.setMyLocationEnabled(true);
 
+        LatLng yourLocation = getLocation();
         //get Your Current Location
-        Marker TP = googleMap.addMarker(new MarkerOptions().
-                position(getLocation()).title("Your location!"));
+
+        if(yourLocation != null) {
+            Marker TP = googleMap.addMarker(new MarkerOptions().
+                    position(yourLocation).title("Your location!"));
+        }
+        else{
+            /////USE THE PREVIOUSLY STORED LOCATION FROM THE DATABASE, IF ONE EXISTS
+        }
+
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        //ADD CODE HERE TO INSERT yourLocation INTO THE DATABASE FOR THE CURRENT USER////////////
+        //////////////////////////////////////////////////////////////////////////////////////////
+
+        //////////////////////////////////////////////////////////////////////////////////////////
+        ///ADD CODE HERE TO ALSO DISPLAY OTHER USERS' LOCATION NEARBY////////////////////////////
+        //////////////////////////////////////////////////////////////////////////////////////////
 
     }
 
