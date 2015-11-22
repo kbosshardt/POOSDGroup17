@@ -29,6 +29,7 @@
     <string name="no_interest_category_data">No categories to display.</string>
     <string name="title_activity_user_details">UserDetailsActivity</string>
     <string name="gender">Gender</string>
+    <string name="interests">Interests</string>
     <string name="view_interests">View Interests</string>
     <string name="title_activity_profile">ProfileActivity</string>
     <string name="map_search">MapSearch</string>

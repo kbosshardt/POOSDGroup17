@@ -13,16 +13,23 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.parse.GetDataCallback;
 import com.parse.ParseException;
 import com.parse.ParseFile;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+import com.parse.ParseRelation;
 import com.parse.ParseUser;
 
 import java.io.ByteArrayOutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -36,6 +43,8 @@ public class ProfileActivity extends AppCompatActivity {
     private TextView genderTextView;
     String mCurrentPhotoPath;
     ParseFile photoFile;
+
+    private Spinner interestSpinner;
 
     static final int RESULT_LOAD_IMAGE = 1;
     static final int REQUEST_TAKE_PHOTO = 2;
@@ -236,6 +245,31 @@ public class ProfileActivity extends AppCompatActivity {
         ParseUser currentUser = ParseUser.getCurrentUser();
         currentUser.put("profilePicture", photoFile);
         currentUser.saveInBackground();
+    }
+
+
+
+    // add interests to spinner
+    // add items into spinner dynamically
+    public void addItemsOnSpinner2() {
+
+        interestSpinner = (Spinner) findViewById(R.id.interestSpinner);
+        List<String> list = new ArrayList<String>();
+        list.add("list 1");
+        list.add("list 2");
+        list.add("list 3");
+
+
+        final ParseUser currentUser = ParseUser.getCurrentUser();
+        final ParseRelation<ParseObject> relation = currentUser.getRelation("interests");
+        ParseQuery interestQuery = relation.getQuery();
+
+        list = interestQuery.find();
+
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, list);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        interestSpinner.setAdapter(dataAdapter);
     }
 
 }
