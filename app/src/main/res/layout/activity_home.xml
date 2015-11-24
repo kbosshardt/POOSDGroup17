@@ -7,7 +7,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".HomeActivity" >
+    tools:context=".HomeActivity"
+    android:weightSum="1">
 
     <TextView android:text="Home" android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
@@ -79,5 +80,11 @@
         android:id="@+id/profile"
         android:text="View Profile"
         android:onClick="viewProfile"/>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/listView"
+        android:layout_gravity="center_horizontal" />
 
 </LinearLayout>

@@ -73,7 +73,7 @@
         </TableRow>
 
 
-        <TableRow android:id="@+id/emailTableRow">
+        <TableRow android:id="@+id/usernameTableRow">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -81,9 +81,9 @@
                 android:layout_gravity="right"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:text="@string/email" />
+                android:text="@string/username" />
             <TextView
-                android:id="@+id/userEmail"
+                android:id="@+id/userUsername"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"

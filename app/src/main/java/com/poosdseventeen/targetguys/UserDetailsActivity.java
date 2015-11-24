@@ -1,169 +1,294 @@
 package com.poosdseventeen.targetguys;
 
-import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.facebook.AccessToken;
-import com.facebook.GraphRequest;
-import com.facebook.GraphResponse;
-import com.facebook.login.widget.ProfilePictureView;
+import com.parse.FindCallback;
+import com.parse.GetDataCallback;
+import com.parse.ParseException;
+import com.parse.ParseFile;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+import com.parse.ParseRelation;
 import com.parse.ParseUser;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.ByteArrayOutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
-public class UserDetailsActivity extends Activity {
+public class UserDetailsActivity extends AppCompatActivity {
 
-    private ProfilePictureView userProfilePictureView;
-    private TextView userNameView;
-    private TextView userGenderView;
-    private TextView userEmailView;
+    private String userName;
+    private String userUsername;
+    private String userGender;
+    private ImageView userPicture;
+    private ParseFile profilePictureFile;
+    private TextView nameTextView;
+    private TextView usernameTextView;
+    private TextView genderTextView;
+    ParseFile photoFile;
+    private ParseRelation relation;
+    private ParseQuery interestQuery;
+
+    private Spinner interestSpinner;
+
+    static final int RESULT_LOAD_IMAGE = 1;
+    static final int REQUEST_TAKE_PHOTO = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        setContentView(R.layout.activity_user_details);
-
-        userProfilePictureView = (ProfilePictureView) findViewById(R.id.userProfilePicture);
-        userNameView = (TextView) findViewById(R.id.userName);
-        userGenderView = (TextView) findViewById(R.id.userGender);
-        userEmailView = (TextView) findViewById(R.id.userEmail);
+        setContentView(R.layout.activity_profile);
 
 
-        //Fetch Facebook user info if it is logged
+        // Check if user is logged in
         ParseUser currentUser = ParseUser.getCurrentUser();
-        if ((currentUser != null) && currentUser.isAuthenticated()) {
-            makeMeRequest();
+
+        if(currentUser == null) {
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+            finish();
         }
+
+        userName = currentUser.getString("name");
+        userUsername = currentUser.getString("username");
+        userGender = currentUser.getString("gender");
+
+        nameTextView = (TextView) findViewById(R.id.userName);
+        usernameTextView = (TextView) findViewById(R.id.userUsername);
+        genderTextView = (TextView) findViewById(R.id.userGender);
+        userPicture = (ImageView) findViewById(R.id.profilePicture);
+
+        nameTextView.setText(userName);
+        usernameTextView.setText(userUsername);
+        genderTextView.setText(userGender);
+
+
+        profilePictureFile = currentUser.getParseFile("profilePicture");
+
+        loadImages(profilePictureFile, userPicture);
+        relation = currentUser.getRelation("interests");
+        interestQuery = relation.getQuery();
+        addItemsOnSpinner2();
+
+
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
-
-        ParseUser currentUser = ParseUser.getCurrentUser();
-        if (currentUser != null) {
-            // Check if the user is currently logged
-            // and show any cached content
-            updateViewsWithProfileInfo();
-        } else {
-            // If the user is not logged in, go to the
-            // activity showing the login view.
-            startLoginActivity();
-        }
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_profile, menu);
+        return true;
     }
 
-    private void makeMeRequest() {
-        GraphRequest request = GraphRequest.newMeRequest(AccessToken.getCurrentAccessToken(),
-                new GraphRequest.GraphJSONObjectCallback() {
-                    @Override
-                    public void onCompleted(JSONObject jsonObject, GraphResponse graphResponse) {
-                        if (jsonObject != null) {
-                            JSONObject userProfile = new JSONObject();
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
 
-                            try {
-                                userProfile.put("facebookId", jsonObject.getLong("id"));
-                                userProfile.put("name", jsonObject.getString("name"));
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
 
-                                if (jsonObject.getString("gender") != null)
-                                    userProfile.put("gender", jsonObject.getString("gender"));
+        return super.onOptionsItemSelected(item);
+    }
 
-                                if (jsonObject.getString("email") != null)
-                                    userProfile.put("email", jsonObject.getString("email"));
 
-                                // Save the user profile info in a user property
-                                ParseUser currentUser = ParseUser.getCurrentUser();
-                                currentUser.put("profile", userProfile);
-                                currentUser.saveInBackground();
+    private void loadImages(ParseFile thumbnail, final ImageView img) {
 
-                                // Show the user info
-                                updateViewsWithProfileInfo();
-                            } catch (JSONException e) {
-                                Log.d("Target Guys", "Error parsing returned user data. " + e);
-                            }
-                        } else if (graphResponse.getError() != null) {
-                            switch (graphResponse.getError().getCategory()) {
-                                case LOGIN_RECOVERABLE:
-                                    Log.d("Target Guys", "Authentication error: " + graphResponse.getError());
-                                    break;
-
-                                case TRANSIENT:
-                                    Log.d("Target Guys",
-                                            "Transient error. Try again. " + graphResponse.getError());
-                                    break;
-
-                                case OTHER:
-                                    Log.d("Target Guys",
-                                            "Some other error: " + graphResponse.getError());
-                                    break;
-                            }
-                        }
+        if (thumbnail != null) {
+            thumbnail.getDataInBackground(new GetDataCallback() {
+                @Override
+                public void done(byte[] data, ParseException e) {
+                    if (e == null) {
+                        Bitmap bmp = BitmapFactory.decodeByteArray(data, 0, data.length);
+                        img.setImageBitmap(bmp);
                     }
-                });
-        Bundle parameters = new Bundle();
-        parameters.putString("fields", "id,email,gender,name");
-        request.setParameters(parameters);
-        request.executeAsync();
-    }
-
-    private void updateViewsWithProfileInfo() {
-        ParseUser currentUser = ParseUser.getCurrentUser();
-        if (currentUser.has("profile")) {
-            JSONObject userProfile = currentUser.getJSONObject("profile");
-            try {
-
-                if (userProfile.has("facebookId")) {
-                    userProfilePictureView.setProfileId(userProfile.getString("facebookId"));
-                } else {
-                    // Show the default, blank user profile picture
-                    userProfilePictureView.setProfileId(null);
                 }
-
-                if (userProfile.has("name")) {
-                    userNameView.setText(userProfile.getString("name"));
-                } else {
-                    userNameView.setText("");
-                }
-
-                if (userProfile.has("gender")) {
-                    userGenderView.setText(userProfile.getString("gender"));
-                } else {
-                    userGenderView.setText("");
-                }
-
-                if (userProfile.has("email")) {
-                    userEmailView.setText(userProfile.getString("email"));
-                } else {
-                    userEmailView.setText("");
-                }
-
-            } catch (JSONException e) {
-                Log.d("Target Guys",  "Error parsing saved user data.");
-            }
+            });
+        } else {
+            //get new picture
+//            Toast.makeText(UserDetailsActivity.this,
+//                    "keep old!", Toast.LENGTH_SHORT).show();
         }
-    }
+    }// load image
 
-    public void onLogoutClick(View v) {
-        logout();
-    }
 
-    private void logout() {
-        // Log the user out
-        ParseUser.logOut();
+    public void logout(final View v){
+        ParseUser user = ParseUser.getCurrentUser();
+        user.logOut();
 
-        // Go to the login view
-        startLoginActivity();
-    }
-
-    private void startLoginActivity() {
-        Intent intent = new Intent(this, LoginActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        Intent intent = new Intent(UserDetailsActivity.this, MainActivity.class);
         startActivity(intent);
+        finish();
     }
+
+    // option to change picture
+    public void getNewProfilePicture(View v){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setMessage("Change Profile Picture");
+
+        // get an existing photo form the gallery
+        alertDialogBuilder.setPositiveButton("Get existing photo", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface arg0, int arg1) {
+                Toast.makeText(UserDetailsActivity.this, "You clicked existing button", Toast.LENGTH_LONG).show();
+                Intent i = new Intent(
+                        Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+
+                startActivityForResult(i, RESULT_LOAD_IMAGE);
+            }
+        });
+
+        // get new photo from camera
+        alertDialogBuilder.setNegativeButton("Take photo", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(UserDetailsActivity.this, "You clicked take photo button", Toast.LENGTH_LONG).show();
+
+                Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
+
+
+            }
+        });
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+    }
+
+
+
+
+
+    // get results from gallery or camera
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+
+        if (resultCode == RESULT_OK) {
+
+            if (requestCode == RESULT_LOAD_IMAGE && null != data) {
+                Uri selectedImage = data.getData();
+                String[] filePathColumn = {MediaStore.Images.Media.DATA};
+
+                Cursor cursor = getContentResolver().query(selectedImage,
+                        filePathColumn, null, null, null);
+                cursor.moveToFirst();
+
+                int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+                String picturePath = cursor.getString(columnIndex);
+                cursor.close();
+
+                Bitmap thumbnail = BitmapFactory.decodeFile(picturePath);
+                userPicture.setImageBitmap(thumbnail);
+                saveImage(thumbnail);
+
+                saveImage(thumbnail);
+            } else if (requestCode == REQUEST_TAKE_PHOTO) {
+                Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
+
+                saveImage(thumbnail);
+
+//                File destination = new File(Environment.getExternalStorageDirectory(),
+//                        System.currentTimeMillis() + ".png");
+//                FileOutputStream fo;
+//                try {
+//                    destination.createNewFile();
+//                    fo = new FileOutputStream(destination);
+//                    fo.write(bytes.toByteArray());
+//                    fo.close();
+//                } catch (FileNotFoundException e) {
+//                    e.printStackTrace();
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+                userPicture.setImageBitmap(thumbnail);
+                saveImage(thumbnail);
+            }
+
+        }
+
+
+
+    }
+
+
+    private void saveImage(Bitmap thumbnail) {
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        thumbnail.compress(Bitmap.CompressFormat.PNG, 100, bytes);
+
+
+        byte[] scaledData = bytes.toByteArray();
+
+        // Save the scaled image to Parse
+        photoFile = new ParseFile("ProfilePicture.PNG", scaledData);
+        photoFile.saveInBackground();
+        ParseUser currentUser = ParseUser.getCurrentUser();
+        currentUser.put("profilePicture", photoFile);
+        currentUser.saveInBackground();
+    }
+
+
+    public void addItemsOnSpinner2() {
+
+
+
+        interestSpinner = (Spinner) findViewById(R.id.interestSpinner);
+
+        final ArrayList<String> list = new ArrayList<String>();
+        list.add("Click to view interests");
+
+
+        interestQuery.findInBackground(new FindCallback<ParseObject>() {
+            public void done(List<ParseObject> interestsList, ParseException e) {
+                if (e == null) {
+                    Log.d("User interests", "Retrieved " + interestsList.size() + " interests for this user");
+                    for (int i = 0; i < interestsList.size(); i++) {
+
+                        //get current category
+                        ParseObject userInterest = interestsList.get(i);
+
+                        // put current category as header
+                        list.add(userInterest.getString("name"));
+                    }
+
+                } else {
+                    Log.d("interests", "Error: " + e.getMessage());
+                }
+            }
+        });
+
+
+        // Create an adapter from the string array resource and use
+        // android's inbuilt layout file simple_spinner_item
+        // that represents the default spinner in the UI
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, list);
+        // Set the layout to use for each dropdown item
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        interestSpinner.setAdapter(adapter);
+    }
+
 }

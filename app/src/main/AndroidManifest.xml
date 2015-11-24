@@ -48,6 +48,9 @@
         <activity
             android:name=".SearchMap"
             android:label="@string/map_search" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HomeActivity" />
         </activity>
         <activity
             android:name="com.facebook.FacebookActivity"
@@ -62,6 +65,9 @@
         <activity
             android:name=".UserDetailsActivity"
             android:label="@string/title_activity_user_details" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HomeActivity" />
         </activity>
 
         <activity
@@ -73,6 +79,11 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".HomeActivity" />
+
+            <intent-filter>
+                <action android:name=".ProfileActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
 >
         </activity>
 
@@ -96,7 +107,7 @@
             <!-- The meta-data element is needed for versions lower than 4.1 -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".CategoryActivity" />>
+                android:value=".CategoryActivity" />
         </activity>
     </application>
 

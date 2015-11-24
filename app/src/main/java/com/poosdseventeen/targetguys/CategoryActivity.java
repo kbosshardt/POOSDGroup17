@@ -9,7 +9,6 @@ import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import android.view.View;
 import android.widget.ExpandableListView;
-import android.widget.Toast;
 
 import com.parse.FindCallback;
 import com.parse.GetCallback;
@@ -160,9 +159,9 @@ public class CategoryActivity extends Activity {
             @Override
             public boolean onGroupClick(ExpandableListView parent, View v,
                                         int groupPosition, long id) {
-                 Toast.makeText(getApplicationContext(),
-                 "Group Clicked " + listCategories.get(groupPosition),
-                 Toast.LENGTH_SHORT).show();
+//                 Toast.makeText(getApplicationContext(),
+//                 "Group Clicked " + listCategories.get(groupPosition),
+//                 Toast.LENGTH_SHORT).show();
                 return false;
             }
         });
@@ -172,9 +171,9 @@ public class CategoryActivity extends Activity {
 
             @Override
             public void onGroupExpand(int groupPosition) {
-                Toast.makeText(getApplicationContext(),
-                        listCategories.get(groupPosition) + " Expanded",
-                        Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(),
+//                        listCategories.get(groupPosition) + " Expanded",
+//                        Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -183,9 +182,9 @@ public class CategoryActivity extends Activity {
 
             @Override
             public void onGroupCollapse(int groupPosition) {
-                Toast.makeText(getApplicationContext(),
-                        listCategories.get(groupPosition) + " Collapsed",
-                        Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(),
+//                        listCategories.get(groupPosition) + " Collapsed",
+//                        Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -197,14 +196,14 @@ public class CategoryActivity extends Activity {
             public boolean onChildClick(ExpandableListView parent, View v,
                                         int groupPosition, int childPosition, long id) {
 
-                Toast.makeText(
-                        getApplicationContext(),
-                        listCategories.get(groupPosition)
-                                + " : "
-                                + listInterests.get(
-                                listCategories.get(groupPosition)).get(
-                                childPosition), Toast.LENGTH_SHORT)
-                        .show();
+//                Toast.makeText(
+//                        getApplicationContext(),
+//                        listCategories.get(groupPosition)
+//                                + " : "
+//                                + listInterests.get(
+//                                listCategories.get(groupPosition)).get(
+//                                childPosition), Toast.LENGTH_SHORT)
+//                        .show();
 
                 userInterests.add(listInterests.get(
                         listCategories.get(groupPosition)).get(

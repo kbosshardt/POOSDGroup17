@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,6 +20,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.parse.FindCallback;
+import com.parse.GetCallback;
 import com.parse.GetDataCallback;
 import com.parse.ParseException;
 import com.parse.ParseFile;
@@ -34,15 +37,19 @@ import java.util.List;
 public class ProfileActivity extends AppCompatActivity {
 
     private String userName;
-    private String userEmail;
+    private String userUsername;
     private String userGender;
     private ImageView userPicture;
     private ParseFile profilePictureFile;
     private TextView nameTextView;
-    private TextView emailTextView;
+    private TextView usernameTextView;
     private TextView genderTextView;
-    String mCurrentPhotoPath;
     ParseFile photoFile;
+    protected ParseUser currentUser;
+    protected ParseUser user;
+    protected User parseUser;
+    private ParseRelation relation;
+    private ParseQuery interestQuery;
 
     private Spinner interestSpinner;
 
@@ -54,9 +61,20 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
+        nameTextView = (TextView) findViewById(R.id.userName);
+        usernameTextView = (TextView) findViewById(R.id.userUsername);
+        genderTextView = (TextView) findViewById(R.id.userGender);
+        userPicture = (ImageView) findViewById(R.id.profilePicture);
+
+
+
 
         // Check if user is logged in
-        ParseUser currentUser = ParseUser.getCurrentUser();
+        currentUser = ParseUser.getCurrentUser();
+
+        Intent intent1 = getIntent();
+        userName = intent1.getStringExtra("selectedUser");
+
 
         if(currentUser == null) {
             Intent intent = new Intent(this, LoginActivity.class);
@@ -64,29 +82,37 @@ public class ProfileActivity extends AppCompatActivity {
             finish();
         }
 
-        userName = currentUser.getString("name");
-        userEmail = currentUser.getEmail();
-        userGender = currentUser.getString("gender");
+//        if(!(userName == currentUser.getString("name"))) {
+            ParseQuery<ParseUser> query = ParseUser.getQuery();
+            query.whereEqualTo("username", userName);
+            query.getFirstInBackground(new GetCallback<ParseUser>() {
+                public void done(ParseUser userFound, ParseException e) {
+                    if (e == null) {
+                        userUsername = userFound.getString("username");
+                        userGender = userFound.getString("gender");
+                        profilePictureFile = userFound.getParseFile("profilePicture");
+                        loadImages(profilePictureFile, userPicture);
+                        relation = userFound.getRelation("interests");
+                        Log.d("User Found", userFound.getString("name"));
+                        Log.d("User Found", userFound.getEmail());
+                        Log.d("User Found", userFound.getString("gender"));
+                        interestQuery = relation.getQuery();
+                        addItemsOnSpinner2();
 
+                        nameTextView.setText(userName);
+                        usernameTextView.setText(userUsername);
+                        genderTextView.setText(userGender);
 
-
-
-        nameTextView = (TextView) findViewById(R.id.userName);
-        emailTextView = (TextView) findViewById(R.id.userEmail);
-        genderTextView = (TextView) findViewById(R.id.userGender);
-        userPicture = (ImageView) findViewById(R.id.profilePicture);
-
-        nameTextView.setText(userName);
-        emailTextView.setText(userEmail);
-        genderTextView.setText(userGender);
-
-
-        profilePictureFile = currentUser.getParseFile("profilePicture");
-
-        loadImages(profilePictureFile, userPicture);
+                    } else {
+                        // Something went wrong.
+                        Log.d("User", "Error: " + e.getMessage());
+                    }
+                }
+            });
 
 
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -111,6 +137,7 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
 
+    // load profile picture from database
     private void loadImages(ParseFile thumbnail, final ImageView img) {
 
         if (thumbnail != null) {
@@ -123,17 +150,12 @@ public class ProfileActivity extends AppCompatActivity {
                     }
                 }
             });
-        } else {
-            //get new picture
-            Toast.makeText(ProfileActivity.this,
-                    "keep old!", Toast.LENGTH_SHORT).show();
         }
-    }// load image
+    }
 
 
     public void logout(final View v){
-        ParseUser user = ParseUser.getCurrentUser();
-        user.logOut();
+        currentUser.logOut();
 
         Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
         startActivity(intent);
@@ -253,23 +275,42 @@ public class ProfileActivity extends AppCompatActivity {
     // add items into spinner dynamically
     public void addItemsOnSpinner2() {
 
+
+
         interestSpinner = (Spinner) findViewById(R.id.interestSpinner);
-        List<String> list = new ArrayList<String>();
-        list.add("list 1");
-        list.add("list 2");
-        list.add("list 3");
+
+        final ArrayList<String> list = new ArrayList<String>();
+        list.add("Click to view interests");
 
 
-        final ParseUser currentUser = ParseUser.getCurrentUser();
-        final ParseRelation<ParseObject> relation = currentUser.getRelation("interests");
-        ParseQuery interestQuery = relation.getQuery();
+        interestQuery.findInBackground(new FindCallback<ParseObject>() {
+            public void done(List<ParseObject> interestsList, ParseException e) {
+                if (e == null) {
+                    Log.d("User interests", "Retrieved " + interestsList.size() + " interests for this user");
+                    for(int i = 0; i < interestsList.size(); i++) {
 
-        list = interestQuery.find();
+                        //get current category
+                        ParseObject userInterest = interestsList.get(i);
 
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, list);
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        interestSpinner.setAdapter(dataAdapter);
+                        // put current category as header
+                        list.add(userInterest.getString("name"));
+                    }
+
+                } else {
+                    Log.d("interests", "Error: " + e.getMessage());
+                }
+            }
+        });
+
+
+        // Create an adapter from the string array resource and use
+        // android's inbuilt layout file simple_spinner_item
+        // that represents the default spinner in the UI
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, list);
+        // Set the layout to use for each dropdown item
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        interestSpinner.setAdapter(adapter);
     }
 
 }
