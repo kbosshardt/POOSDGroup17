@@ -83,32 +83,32 @@ public class ProfileActivity extends AppCompatActivity {
         }
 
 //        if(!(userName == currentUser.getString("name"))) {
-            ParseQuery<ParseUser> query = ParseUser.getQuery();
-            query.whereEqualTo("username", userName);
-            query.getFirstInBackground(new GetCallback<ParseUser>() {
-                public void done(ParseUser userFound, ParseException e) {
-                    if (e == null) {
-                        userUsername = userFound.getString("username");
-                        userGender = userFound.getString("gender");
-                        profilePictureFile = userFound.getParseFile("profilePicture");
-                        loadImages(profilePictureFile, userPicture);
-                        relation = userFound.getRelation("interests");
-                        Log.d("User Found", userFound.getString("name"));
-                        Log.d("User Found", userFound.getEmail());
-                        Log.d("User Found", userFound.getString("gender"));
-                        interestQuery = relation.getQuery();
-                        addItemsOnSpinner2();
+        ParseQuery<ParseUser> query = ParseUser.getQuery();
+        query.whereEqualTo("username", userName);
+        query.getFirstInBackground(new GetCallback<ParseUser>() {
+            public void done(ParseUser userFound, ParseException e) {
+                if (e == null) {
+                    userUsername = userFound.getString("username");
+                    userGender = userFound.getString("gender");
+                    profilePictureFile = userFound.getParseFile("profilePicture");
+                    loadImages(profilePictureFile, userPicture);
+                    relation = userFound.getRelation("interests");
+                    Log.d("User Found", userFound.getString("name"));
+                    Log.d("User Found", userFound.getEmail());
+                    Log.d("User Found", userFound.getString("gender"));
+                    interestQuery = relation.getQuery();
+                    addItemsOnSpinner2();
 
-                        nameTextView.setText(userName);
-                        usernameTextView.setText(userUsername);
-                        genderTextView.setText(userGender);
+                    nameTextView.setText(userName);
+                    usernameTextView.setText(userUsername);
+                    genderTextView.setText(userGender);
 
-                    } else {
-                        // Something went wrong.
-                        Log.d("User", "Error: " + e.getMessage());
-                    }
+                } else {
+                    // Something went wrong.
+                    Log.d("User", "Error: " + e.getMessage());
                 }
-            });
+            }
+        });
 
 
     }

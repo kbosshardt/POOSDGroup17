@@ -32,7 +32,7 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:22.0.+'
     compile 'com.facebook.android:facebook-android-sdk:4.7.0'
     compile files('src/main/libs/ParseFacebookUtilsV4-1.10.3.jar')
+    compile files('src/main/libs/sinch-android-rtc-3.7.1.jar')
     compile 'de.hdodenhof:circleimageview:2.0.0'
     compile 'com.google.android.gms:play-services:7.8.0'
-    compile files('C:/Users/sam/Code/AndroidProjects/POOSDGroup17/libs/sinch-android-rtc-3.7.1.jar')
 }
