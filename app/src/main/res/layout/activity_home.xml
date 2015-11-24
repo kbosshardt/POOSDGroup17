@@ -80,4 +80,20 @@
         android:text="View Profile"
         android:onClick="viewProfile"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/matches"
+        android:text="View Matches"
+        android:onClick="viewMatches"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/chat"
+        android:text="Conversations"
+        android:onClick="viewChat"/>
+
 </LinearLayout>
