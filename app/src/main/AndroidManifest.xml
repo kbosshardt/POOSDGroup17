@@ -109,6 +109,17 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".CategoryActivity" />
         </activity>
+
+
+        <activity
+            android:name=".ListMatchActivity"
+            android:parentActivityName=".HomeActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HomeActivity" />
+        </activity>
+
+
     </application>
 
     <!-- Camera Permissions -->
