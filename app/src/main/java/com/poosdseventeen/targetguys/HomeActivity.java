@@ -68,9 +68,12 @@ public class HomeActivity extends AppCompatActivity {
     public void logout(final View v){
         ParseUser currentUser = ParseUser.getCurrentUser();
         currentUser.logOut();
+        //Putting this here for now since not sure where else to put it
+        stopService(new Intent(this, ChatActivity.class));
 
         Intent intent = new Intent(HomeActivity.this, MainActivity.class);
         startActivity(intent);
+
         finish();
     }
 
@@ -104,6 +107,18 @@ public class HomeActivity extends AppCompatActivity {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
         builder.setContentIntent(pendingIntent);
 
+
+        startActivity(intent);
+    }
+
+    public void viewChat(View v){
+        Intent intent = new Intent(getApplicationContext(), ChatActivity.class);
+
+        PendingIntent pendingIntent =
+                TaskStackBuilder.create(this)
+                            .addNextIntentWithParentStack(intent).getPendingIntent(0,PendingIntent.FLAG_UPDATE_CURRENT);
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+        builder.setContentIntent(pendingIntent);
 
         startActivity(intent);
     }
@@ -186,5 +201,16 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
+    public void viewMatches(View v){
+        Intent intent = new Intent(getApplicationContext(), ListMatchActivity.class);
+
+        PendingIntent pendingIntent =
+                TaskStackBuilder.create(this)
+                        .addNextIntentWithParentStack(intent).getPendingIntent(0,PendingIntent.FLAG_UPDATE_CURRENT);
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+        builder.setContentIntent(pendingIntent);
+
+        startActivity(intent);
+    }
 
 }
