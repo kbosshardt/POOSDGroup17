@@ -2,11 +2,11 @@
 <items version="2" >
 
     <item
-        jar="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/src/main/libs/sinch-android-rtc-3.7.1.jar"
+        jar="C:\Users\Colin\Documents\POOSDGroup17\app\src\main\libs\sinch-android-rtc-3.7.1.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="bf69cf98f8d8eb6c78ec7d0a0bcb016e95f79b5e">
-        <dex dex="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/pre-dexed/debug/sinch-android-rtc-3.7.1-d9f4b642639016b981ecff188584107d3c70970d.jar" />
+        <dex dex="C:\Users\Colin\Documents\POOSDGroup17\app\build\intermediates\pre-dexed\debug\sinch-android-rtc-3.7.1-107f6416af6d4694c2bc1306f41c2bb37a7bf68b.jar" />
     </item>
 
 </items>
