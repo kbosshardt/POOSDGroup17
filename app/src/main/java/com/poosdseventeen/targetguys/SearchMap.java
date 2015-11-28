@@ -37,6 +37,7 @@ import java.util.List;
 public class SearchMap extends AppCompatActivity {
     static final LatLng testPoint = new LatLng(21, 57);
     private GoogleMap googleMap;
+    private ParseUser currentUser;
 
 
     ArrayList showUsers =  new ArrayList<String>();
@@ -46,6 +47,8 @@ public class SearchMap extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.map_search);
+
+        currentUser = ParseUser.getCurrentUser();
 
 //        try {
 //            if (googleMap == null) {
@@ -78,6 +81,10 @@ public class SearchMap extends AppCompatActivity {
                         // TODO Auto-generated method stub
 
                         googleMap.addMarker(new MarkerOptions().position(new LatLng(arg0.getLatitude(), arg0.getLongitude())).title("It's Me!"));
+//                        Log.d("Lattitude", arg0.getLatitude() + "");
+//                        Log.d("Longitude", arg0.getLongitude() + "");
+//                        ParseGeoPoint point = new ParseGeoPoint(arg0.getLatitude(), arg0.getLongitude());
+//                        currentUser.put("location", point);
                     }
                 });
 
