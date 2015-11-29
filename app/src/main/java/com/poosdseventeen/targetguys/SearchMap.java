@@ -5,27 +5,39 @@ import android.app.PendingIntent;
 import android.app.TaskStackBuilder;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
+import com.google.android.gms.maps.CameraUpdate;
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.model.Circle;
+import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.parse.FindCallback;
 import com.parse.ParseException;
+import com.parse.ParseGeoPoint;
+import com.parse.ParseObject;
 import com.parse.ParseQuery;
+import com.parse.ParseRelation;
 import com.parse.ParseUser;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -38,8 +50,13 @@ public class SearchMap extends AppCompatActivity {
     static final LatLng testPoint = new LatLng(21, 57);
     private GoogleMap googleMap;
 
-
     ArrayList showUsers =  new ArrayList<String>();
+
+    double searchDistance;
+    ParseUser currentUser;
+    ParseGeoPoint parseLocation;
+    ListView usersList;
+
 
 
     @Override
@@ -47,72 +64,98 @@ public class SearchMap extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.map_search);
 
-//        try {
-//            if (googleMap == null) {
-//                googleMap = ((MapFragment) getFragmentManager().
-//                        findFragmentById(R.id.map)).getMap();
-//            }
-//            googleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
-//            // Marker TP = googleMap.addMarker(new MarkerOptions().
-//            //        position(testPoint).title("testPoint"));
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+        usersList = (ListView)findViewById(R.id.users_listview);
 
-        // Do a null check to confirm that we have not already instantiated the map.
-        if (googleMap == null) {
-            // Try to obtain the map from the SupportMapFragment.
-//            googleMap = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
-            googleMap = ((MapFragment) getFragmentManager().
+        try {
+            if (googleMap == null) {
+                googleMap = ((MapFragment) getFragmentManager().
                         findFragmentById(R.id.map)).getMap();
-            //googleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
-            googleMap.setMyLocationEnabled(true);
-            // Check if we were successful in obtaining the map.
-            if (googleMap != null) {
-
-
-                googleMap.setOnMyLocationChangeListener(new GoogleMap.OnMyLocationChangeListener() {
-
-                    @Override
-                    public void onMyLocationChange(Location arg0) {
-                        // TODO Auto-generated method stub
-
-                        googleMap.addMarker(new MarkerOptions().position(new LatLng(arg0.getLatitude(), arg0.getLongitude())).title("It's Me!"));
-                    }
-                });
-
             }
+            googleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+            // Marker TP = googleMap.addMarker(new MarkerOptions().
+            //        position(testPoint).title("testPoint"));
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
+        Intent intent = new Intent(this, CategoryActivity.class);
+        Bundle extras = getIntent().getExtras();
+        String distanceString = extras.getString("distance");
 
+        searchDistance = Double.parseDouble(distanceString);
+
+        ParseUser currentUser = ParseUser.getCurrentUser();
+        if(currentUser == null) {
+            startActivity(intent);
+            finish();
+        }
+
+        currentUser.put("searchDistance", searchDistance);
+        currentUser.put("currentlyUsing", true);
+
+
+        setUpMap();
         setUpUsersList();
     }
 
-//    private void setUpMap() {
-//
-//        // Enable MyLocation Layer of Google Map
-//        googleMap.setMyLocationEnabled(true);
-//
-//        LatLng yourLocation = getLocation();
-//        //get Your Current Location
-//
-//        if(yourLocation != null) {
-//            Marker TP = googleMap.addMarker(new MarkerOptions().
-//                    position(yourLocation).title("Your location!"));
-//        }
-//        else{
-//            /////USE THE PREVIOUSLY STORED LOCATION FROM THE DATABASE, IF ONE EXISTS
-//        }
-//
-//        ///////////////////////////////////////////////////////////////////////////////////////////
-//        //ADD CODE HERE TO INSERT yourLocation INTO THE DATABASE FOR THE CURRENT USER////////////
-//        //////////////////////////////////////////////////////////////////////////////////////////
-//
-//        //////////////////////////////////////////////////////////////////////////////////////////
-//        ///ADD CODE HERE TO ALSO DISPLAY OTHER USERS' LOCATION NEARBY////////////////////////////
-//        //////////////////////////////////////////////////////////////////////////////////////////
-//
-//    }
+    private void setUpMap() {
+
+        // Enable MyLocation Layer of Google Map
+        googleMap.setMyLocationEnabled(true);
+
+        LatLng yourLocation = getLocation();
+        //get Your Current Location
+
+        currentUser = ParseUser.getCurrentUser();
+
+
+        if(currentUser == null) {
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+            finish();
+        }
+
+        if(yourLocation == null) {
+            ParseGeoPoint point = currentUser.getParseGeoPoint("location");
+            if(point == null){
+                AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(this);
+
+                dlgAlert.setMessage("No location can be found, please open up Google Maps to get your position then try again.");
+                dlgAlert.setTitle("Error Message...");
+                dlgAlert.setPositiveButton("OK", null);
+                dlgAlert.setCancelable(true);
+                dlgAlert.create().show();
+
+                finish();
+            }
+            yourLocation = new LatLng(point.getLatitude(), point.getLongitude());
+
+            /////USE THE PREVIOUSLY STORED LOCATION FROM THE DATABASE, IF ONE EXISTS
+        }
+
+        Marker TP = googleMap.addMarker(new MarkerOptions().
+                position(yourLocation).title(currentUser.getString("name")));
+        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(yourLocation, 10);
+        googleMap.animateCamera(cameraUpdate);
+
+        double circleRadius = searchDistance/0.00062137;
+
+        Circle circle = googleMap.addCircle(new CircleOptions()
+                .center(yourLocation)
+                .radius(circleRadius)
+                .strokeColor(Color.RED));
+        circle.setCenter(yourLocation);
+
+
+        parseLocation = new ParseGeoPoint(yourLocation.latitude, yourLocation.longitude);
+        currentUser.put("location", parseLocation);
+
+
+
+        findUsersWithinSearchDistance();
+
+
+    }
 
     public LatLng getLocation() {
         // Get the location manager
@@ -132,27 +175,6 @@ public class SearchMap extends AppCompatActivity {
     }
 
     private void setUpUsersList(){
-
-        //NEED TO CHANGE THIS QUERY!
-        ParseQuery<ParseUser> query = ParseUser.getQuery();
-        query.whereEqualTo("username", "user2");
-        query.findInBackground(new FindCallback<ParseUser>() {
-            public void done(List<ParseUser> objects, ParseException e) {
-
-                ParseUser user;
-                if (e == null) {
-                    for (int i = 0; i < objects.size(); i++) {
-                        user = objects.get(i);
-                        showUsers.add(user.getString("name"));
-                    }
-
-                } else {
-                    // Something went wrong.
-                }
-            }
-        });
-
-        ListView usersList =(ListView)findViewById(R.id.users_listview);
         ArrayAdapter<String> arrayAdapter =
                 new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, showUsers);
         // Set The Adapter
@@ -177,7 +199,7 @@ public class SearchMap extends AppCompatActivity {
 
                         PendingIntent pendingIntent =
                                 TaskStackBuilder.create(SearchMap.this)
-                                        .addNextIntentWithParentStack(intent).getPendingIntent(0,PendingIntent.FLAG_UPDATE_CURRENT);
+                                        .addNextIntentWithParentStack(intent).getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
                         NotificationCompat.Builder builder = new NotificationCompat.Builder(SearchMap.this);
                         builder.setContentIntent(pendingIntent);
 
@@ -194,7 +216,7 @@ public class SearchMap extends AppCompatActivity {
 
                         PendingIntent pendingIntent =
                                 TaskStackBuilder.create(SearchMap.this)
-                                        .addNextIntentWithParentStack(intent).getPendingIntent(0,PendingIntent.FLAG_UPDATE_CURRENT);
+                                        .addNextIntentWithParentStack(intent).getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
                         NotificationCompat.Builder builder = new NotificationCompat.Builder(SearchMap.this);
                         builder.setContentIntent(pendingIntent);
 
@@ -203,10 +225,78 @@ public class SearchMap extends AppCompatActivity {
 
                     }
                 });
-
                 AlertDialog alertDialog = alertDialogBuilder.create();
                 alertDialog.show();
+
             }
         });
     }
+
+
+    // query users from database based on current location and other users interests, location, and current activity
+    private void findUsersWithinSearchDistance(){
+        final ArrayList<String> currentUserInterests = new ArrayList<String>();
+        ParseQuery<ParseUser> query = ParseUser.getQuery();
+        query.whereExists("location");
+        query.whereNotEqualTo("objectId", currentUser.getString("objectId"));
+        query.whereWithinMiles("location", parseLocation, searchDistance);
+        query.findInBackground(new FindCallback<ParseUser>() {
+            public void done(final List<ParseUser> userList, com.parse.ParseException e) {
+                if (e == null) {
+                    //first set up interest lists
+                    ParseRelation relation = currentUser.getRelation("interests");
+                    ParseQuery interestQuery = relation.getQuery();
+                    interestQuery.findInBackground(new FindCallback<ParseObject>() {
+                        public void done(List<ParseObject> interestsList, ParseException e) {
+                            if (e == null) {
+                                Log.d("User interests", "Retrieved " + interestsList.size() + " interests for this user");
+                                for (int i = 0; i < interestsList.size(); i++) {
+                                    currentUserInterests.add(interestsList.get(i).getString("name"));
+                                    Log.d("OTHER USERES", currentUserInterests.get(i));
+                                }
+
+                            } else {
+                                Log.d("interests", "Error: " + e.getMessage());
+                            }
+                        }
+                    });
+
+                    for (int i = 0; i < userList.size(); i++) {
+                        final int k = i;
+                        final ArrayList<String> otherUsers = new ArrayList<String>();
+                        //first set up interest lists
+                        ParseRelation otherUserRelation = userList.get(i).getRelation("interests");
+                        ParseQuery otherUserInterestQuery = otherUserRelation.getQuery();
+                        otherUserInterestQuery.findInBackground(new FindCallback<ParseObject>() {
+                            public void done(List<ParseObject> interestsList, ParseException e) {
+                                if (e == null) {
+
+                                    for (int j = 0; j < interestsList.size(); j++) {
+                                        otherUsers.add(interestsList.get(j).getString("name"));
+                                    }
+                                    if (!Collections.disjoint(currentUserInterests, otherUsers) && userList.get(k).getString("username") != currentUser.getString("username")) {
+                                        Log.d("IAMMMMM", "HEREEEEEEEEE");
+                                        showUsers.add(userList.get(k).getString("username"));
+                                        googleMap.addMarker(new MarkerOptions().position(new LatLng(userList.get(k).getParseGeoPoint("location").getLatitude(), userList.get(k).getParseGeoPoint("location").getLongitude())).title(userList.get(k).getString("name")));
+                                    }
+
+                                } else {
+                                    Log.d("interests", "Error: " + e.getMessage());
+                                }
+                            }
+                        });
+
+
+
+                    }
+
+                } else {
+                    Toast.makeText(getApplicationContext(),
+                            "Error loading user locations",
+                            Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+    }
+
 }

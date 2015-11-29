@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ExpandableListView;
 
 import com.parse.FindCallback;
@@ -31,6 +32,7 @@ public class CategoryActivity extends Activity {
     List<String> listCategories;
     HashMap<String, List<String>> listInterests;
     List<String> userInterests = new ArrayList<String>();
+    private EditText distanceEditText;
 
 
 
@@ -38,6 +40,9 @@ public class CategoryActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category_list);
+
+        distanceEditText = (EditText) findViewById(R.id.distanceEditText);
+
 
         getCategoriesFromDatabase();
 
@@ -217,7 +222,7 @@ public class CategoryActivity extends Activity {
     }
 
 
-    public void printUserInterests(View v){
+    public void goToMap(View v){
 
         for (String interestName : userInterests) {
             Log.d("User chose", interestName);
@@ -241,7 +246,9 @@ public class CategoryActivity extends Activity {
         }
 
 
-        Intent intent = new Intent(CategoryActivity.this, ProfileActivity.class);
+        Intent intent = new Intent(CategoryActivity.this, SearchMap.class);
+        String distanceString = distanceEditText.getText().toString();
+        intent.putExtra("distance", distanceString);
 
         // Use TaskStackBuilder to build the back stack and get the PendingIntent
         PendingIntent pendingIntent =
