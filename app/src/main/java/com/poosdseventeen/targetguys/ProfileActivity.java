@@ -47,7 +47,6 @@ public class ProfileActivity extends AppCompatActivity {
     ParseFile photoFile;
     protected ParseUser currentUser;
     protected ParseUser user;
-    protected User parseUser;
     private ParseRelation relation;
     private ParseQuery interestQuery;
 
@@ -275,10 +274,10 @@ public class ProfileActivity extends AppCompatActivity {
                     Log.d("User interests", "Retrieved " + interestsList.size() + " interests for this user");
                     for(int i = 0; i < interestsList.size(); i++) {
 
-                        //get current category
+
                         ParseObject userInterest = interestsList.get(i);
 
-                        // put current category as header
+
                         list.add(userInterest.getString("name"));
                     }
 

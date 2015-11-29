@@ -25,20 +25,21 @@ public class HomeActivity extends AppCompatActivity {
 
     ArrayList allUsers =  new ArrayList<String>();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-
+        Intent intent = new Intent(this, LoginActivity.class);
         // Check if user is logged in
         ParseUser currentUser = ParseUser.getCurrentUser();
         if(currentUser == null) {
-            Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
             finish();
         }
 
+        currentUser.put("currentlyUsing", false);
         populateUsers();
     }
 

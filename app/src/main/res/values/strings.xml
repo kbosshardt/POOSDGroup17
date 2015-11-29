@@ -33,6 +33,7 @@
     <string name="view_interests">View Interests</string>
     <string name="title_activity_profile">ProfileActivity</string>
     <string name="map_search">MapSearch</string>
+    <string name="DistanceText">Enter distance between 0-100 miles:</string>
 
     <string name="hello_world">Hello world!</string>
 
