@@ -3,16 +3,16 @@ xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
 android:orientation="vertical"
-android:paddingBottom="@dimen/activity_vertical_margin"
-android:paddingLeft="@dimen/activity_horizontal_margin"
-android:paddingRight="@dimen/activity_horizontal_margin"
-android:paddingTop="@dimen/activity_vertical_margin"
-tools:context=".SignUpActivity" >
+    android:background="@color/light_grey_flat"
+tools:context=".SignUpActivity"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
         android:gravity="center_vertical"
         android:orientation="vertical" >
 
@@ -23,94 +23,156 @@ tools:context=".SignUpActivity" >
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:textColor="#ff0900"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_marginBottom="10dp"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/name_label" />
-
+        <!--name field -->
         <EditText
             android:id="@+id/nameField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/mother_trucking_white"
+            android:hint="Name"
+            android:layout_marginTop="1dp"
+            android:paddingBottom="@dimen/edittext_vertical_padding"
+            android:paddingTop="@dimen/edittext_vertical_padding"
+            android:paddingLeft="@dimen/edittext_horizontal_padding"
+            android:paddingRight="@dimen/edittext_horizontal_padding"
             android:ems="10"
             android:inputType="text" >
 
             <requestFocus />
         </EditText>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/email_label" />
+        <!--email field-->
 
         <EditText
             android:id="@+id/emailField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/mother_trucking_white"
+            android:hint="Email Address"
+            android:layout_marginTop="1dp"
+            android:paddingBottom="@dimen/edittext_vertical_padding"
+            android:paddingTop="@dimen/edittext_vertical_padding"
+            android:paddingLeft="@dimen/edittext_horizontal_padding"
+            android:paddingRight="@dimen/edittext_horizontal_padding"
             android:ems="10"
             android:inputType="text"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/username_label" />
 
+        <!--username label-->
         <EditText
             android:id="@+id/usernameField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/mother_trucking_white"
+            android:layout_marginTop="1dp"
+            android:hint="Username"
+            android:paddingBottom="@dimen/edittext_vertical_padding"
+            android:paddingTop="@dimen/edittext_vertical_padding"
+            android:paddingLeft="@dimen/edittext_horizontal_padding"
+            android:paddingRight="@dimen/edittext_horizontal_padding"
             android:ems="10"
             android:inputType="text" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/password_label" />
-
+        <!--password field-->
         <EditText
             android:id="@+id/passwordField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/mother_trucking_white"
+            android:layout_marginTop="1dp"
+            android:hint="Password"
+            android:paddingBottom="@dimen/edittext_vertical_padding"
+            android:paddingTop="@dimen/edittext_vertical_padding"
+            android:paddingLeft="@dimen/edittext_horizontal_padding"
+            android:paddingRight="@dimen/edittext_horizontal_padding"
             android:ems="10"
             android:inputType="textPassword" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/gender_label"/>
-
-        <Spinner
+        <!--spinner and gender label row-->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/gender_spinner"
-            android:layout_gravity="center_horizontal"
-            />
+            android:orientation="horizontal"
+            android:weightSum="10"
+            >
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:paddingTop="5dp"
+                    android:orientation="vertical"
+                    >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:text="@string/gender_label"
+                    android:textSize="16dp"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/dark_grey_text_color"
+                    />
+            </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#ffffffff"
+                android:layout_marginTop="1dp"
+                android:layout_weight="4"
+                >
+                <Spinner
+                    android:layout_gravity="right"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gender_spinner"
+                    style="?android:attr/actionDropDownStyle"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
         <Button
             android:id="@+id/signUpButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/big_button_height"
             android:layout_gravity="right"
             android:onClick="register"
-            android:text="@string/SignUpButton" />
-
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/blue_button"
+            android:textColor="#ffffffff"
+            android:textSize="20sp"
+            android:text="@string/SignUpButton"
+            android:layout_marginTop="50dp"
+            />
+        </RelativeLayout>
     </LinearLayout>
 
-    <com.facebook.login.widget.LoginButton
-        android:id="@+id/login_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="signInFacebook"/>
+    <!-- Facebook Signin button -->
+    <!--<com.facebook.login.widget.LoginButton-->
+        <!--android:id="@+id/login_button"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:onClick="signInFacebook"/>-->
 
-
-    <Button
-        android:id="@+id/signInButton"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:onClick="showLogin"
-        android:text="@string/alreadyHaveAccountButton" >
-    </Button>
+        android:layout_height="wrap_content">
+        <Button
+            android:background="@drawable/white_button"
+            android:textColor="@color/dark_grey_text_color"
+            android:id="@+id/signInButton"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/big_button_height"
+            android:layout_marginTop="@dimen/big_button_marginTop"
+            android:layout_gravity="center"
+            android:onClick="showLogin"
+            android:text="@string/alreadyHaveAccountButton"
+            style="?android:attr/borderlessButtonStyle"/>
+    </RelativeLayout>
 </LinearLayout>

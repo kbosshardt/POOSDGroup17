@@ -1,5 +1,7 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ff3498db"
     tools:context=".MainActivity"
@@ -14,8 +16,7 @@
 
        <RelativeLayout
            android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:background="#20000000">
+           android:layout_height="wrap_content">
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
@@ -23,7 +24,7 @@
                 android:text="Sign Up"
                 android:id="@+id/signup_button"
                 android:onClick="startSignUp"
-                android:background="@drawable/ripple"
+                android:background="@drawable/button_blue_dark"
                 android:textColor="#ffffffff"
                 android:textSize="20sp"
                 style="?android:attr/borderlessButtonStyle"
@@ -34,8 +35,7 @@
 
         <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#40ffffff">
+            android:layout_height="wrap_content">
         <Button
             android:layout_width="match_parent"
             android:layout_height="75dp"
@@ -45,7 +45,7 @@
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
             android:id="@+id/login_button"
-            android:background="@drawable/ripple"
+            android:background="@drawable/button_blue_light"
             android:textColor="#ffffffff"
             android:textSize="20sp"
             style="?android:attr/borderlessButtonStyle"

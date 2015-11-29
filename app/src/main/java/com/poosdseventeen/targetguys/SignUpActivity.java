@@ -151,7 +151,7 @@ public class SignUpActivity extends Activity{
                             mErrorField.setText("Sorry, you must supply a password to register.");
                             break;
                         default:
-                            mErrorField.setText(e.getLocalizedMessage());
+                            mErrorField.setText("Oops! Looks like something went wrong.");
                     }
                     v.setEnabled(true);
                 }

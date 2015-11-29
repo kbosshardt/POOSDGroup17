@@ -17,9 +17,11 @@
     <string name="email_label">Email:</string>
     <string name="username_label">Username:</string>
     <string name="password_label">Password:</string>
-    <string name="gender_label">Gender:</string>
+
+    <string name="gender_label">Gender</string>
+
     <string name="alreadyHaveAccountButton">Already have an account? Log In</string>
-    <string name="dontHaveAccountButton">Dont have an account yet? Sign In</string>
+    <string name="dontHaveAccountButton">Dont have an account yet? Sign Up</string>
     <string name="logout">Log Out</string>
     <string name="searchButton">Search</string>
 

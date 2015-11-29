@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="button_pressed_blue_light">#25ffffff</color>
+    <color name="button_focused_blue_light">#25ffffff</color>
+    <color name="button_blue_light">#40ffffff</color>
+    <color name="button_pressed_blue_dark">#30000000</color>
+    <color name="button_focused_blue_dark">#30000000</color>
+    <color name="button_blue_dark">#20000000</color>
+
+    <color name="darker_blue">#ff1d6fa5</color>
+    <color name="blue">#ff3498db</color>
+
+    <color name="light_grey_flat">#eaeaea</color>
+    <color name="mother_trucking_white">#ffffffff</color>
+    <color name="dark_grey_text_color">#6C7A89</color>
+    <color name="dark_grey_button_transition">#bbbbbb</color>
+
+    <!--<color name="dark_grey_text"></color>-->
+</resources>

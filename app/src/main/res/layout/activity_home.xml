@@ -3,10 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".HomeActivity"
     android:weightSum="1">
 
@@ -49,50 +45,81 @@
     <!--</LinearLayout>-->
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:background="@drawable/blue_button"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/home_big_button_height"
+        android:textSize="@dimen/home_big_button_textSize"
+        android:layout_marginTop="1dp"
+        android:textColor="@color/mother_trucking_white"
         android:text="@string/searchButton"
         android:id="@+id/search_button"
         android:onClick="searchMap"/>
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:background="@drawable/blue_button"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/home_big_button_height"
+        android:textSize="@dimen/home_big_button_textSize"
+        android:layout_marginTop="1dp"
+        android:textColor="@color/mother_trucking_white"
         android:id="@+id/logout"
         android:text="@string/logout"
         android:onClick="logout"/>
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:background="@drawable/blue_button"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/home_big_button_height"
+        android:textSize="@dimen/home_big_button_textSize"
+        android:layout_marginTop="1dp"
+        android:textColor="@color/mother_trucking_white"
         android:id="@+id/interests"
         android:text="@string/view_interests"
         android:onClick="viewInterests"/>
 
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:background="@drawable/blue_button"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/home_big_button_height"
+        android:textSize="@dimen/home_big_button_textSize"
+        android:layout_marginTop="1dp"
+        android:textColor="@color/mother_trucking_white"
         android:id="@+id/profile"
         android:text="View Profile"
         android:onClick="viewProfile"/>
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:background="@drawable/blue_button"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/home_big_button_height"
+        android:textSize="@dimen/home_big_button_textSize"
+        android:layout_marginTop="1dp"
+        android:textColor="@color/mother_trucking_white"
         android:id="@+id/matches"
         android:text="View Matches"
         android:onClick="viewMatches"/>
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:background="@drawable/blue_button"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/home_big_button_height"
+        android:textSize="@dimen/home_big_button_textSize"
+        android:layout_marginTop="1dp"
+        android:textColor="@color/mother_trucking_white"
         android:id="@+id/chat"
         android:text="Conversations"
         android:onClick="viewChat"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:id="@+id/does_this_even_matter"
+        android:text="Connections"
+        android:layout_gravity="center_horizontal"
+        android:textAllCaps="true"
+        android:drawableBottom="@color/blue"
+        />
 
     <ListView
         android:layout_width="match_parent"
