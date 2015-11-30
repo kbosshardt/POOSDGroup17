@@ -2,263 +2,270 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\sam\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-applinks\1.3.0\bc535105332645408ef5f1380215cc954b842178\bolts-applinks-1.3.0.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="bc535105332645408ef5f1380215cc954b842178">
-        <dex dex="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\pre-dexed\debug\bolts-applinks-1.3.0-24be1ba00d3dbe69e7b55100ec42670e58fc2888.jar" />
-    </item>
-    <item
-        jar="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\exploded-aar\com.facebook.android\facebook-android-sdk\4.7.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="5bdb38b7e4b6094891648c1dc4dc08589b460f97">
-        <dex dex="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\pre-dexed\debug\classes-afcb5362dbcfa8ba95fd9bd25ad500b69d170120.jar" />
-    </item>
-    <item
-        jar="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appstate\7.8.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="edea92852b40eee716e910af8dad9eeaa58fb0e1">
-        <dex dex="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\pre-dexed\debug\classes-b990275fa3db024b4f45be58e508d4a7ace75b55.jar" />
-    </item>
-    <item
-        jar="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\7.8.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="130b32ed466fa0f63efd4c7d6250ccd2ed506790">
-        <dex dex="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\pre-dexed\debug\classes-87a3d78cafbb15bec7a527a6234706fdeefea328.jar" />
-    </item>
-    <item
-        jar="C:\Users\sam\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-tasks\1.3.0\8a62fd16fcc1c06f284fc98e6cbded2a5af1dd4c\bolts-tasks-1.3.0.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="8a62fd16fcc1c06f284fc98e6cbded2a5af1dd4c">
-        <dex dex="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\pre-dexed\debug\bolts-tasks-1.3.0-fd92e662c35df987795554dcfc8ff24e25362d1e.jar" />
-    </item>
-    <item
-        jar="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\7.8.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="0124ce31248c0e8acfa2b28283c6d1a4d76e73d2">
-        <dex dex="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\pre-dexed\debug\classes-4999b1bd97cbab29f60c3d5012479e49d49c8514.jar" />
-    </item>
-    <item
-        jar="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\22.0.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="c6d79137693d494dee16372d3921f919eb724ced">
-        <dex dex="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\pre-dexed\debug\classes-80ea2e3b462107af2c7139531367ead488e69825.jar" />
-    </item>
-    <item
-        jar="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appinvite\7.8.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="98137c4d12c50923f5809852b1ef4d1c4e162081">
-        <dex dex="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\pre-dexed\debug\classes-0429dfeb0abc14696de0b23c2063d84e16117955.jar" />
-    </item>
-    <item
-        jar="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="f8efd0096475e0daf054267b61544e10dc776503">
-        <dex dex="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\pre-dexed\debug\classes-2ade882d88b67d6ae0d093577a67295f4f4eb4d2.jar" />
-    </item>
-    <item
-        jar="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\7.8.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="e23ea11124bb700eeddd4ab7aa848c615f493850">
-        <dex dex="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\pre-dexed\debug\classes-c2a5a6a3d8891b71272b4fe6cfc2a8aba43e45b4.jar" />
-    </item>
-    <item
-        jar="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\7.8.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="adebe28e0c0c05d34a3bfd76f3275bf4d8ff87b6">
-        <dex dex="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\pre-dexed\debug\classes-d65352ebec60983ad9cda054f054a6242ff553a4.jar" />
-    </item>
-    <item
-        jar="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
-        <dex dex="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\pre-dexed\debug\classes-389900cae6c0e6a03d597d49c2ef0f6cac885451.jar" />
-    </item>
-    <item
-        jar="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\7.8.0\jars\classes.jar"
+        jar="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/7.8.0/jars/classes.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="c0c912d58c9468b1f9d9769c8975afdf2c85d681">
-        <dex dex="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\pre-dexed\debug\classes-a88fc42c20d581556f73b20a40e9422ede9e43ed.jar" />
+        <dex dex="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/pre-dexed/debug/classes-481a81f3dc00219bb6dc29f05b7273aea5316d1d.jar" />
     </item>
     <item
-        jar="C:\Users\sam\.gradle\caches\modules-2\files-2.1\com.parse\parse-android\1.11.0\6592129dec2caa8791d322c7e4b6b7a30e8eadae\parse-android-1.11.0.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="6592129dec2caa8791d322c7e4b6b7a30e8eadae">
-        <dex dex="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\pre-dexed\debug\parse-android-1.11.0-5773ee46e58ab82580562257c73ebed68339d984.jar" />
-    </item>
-    <item
-        jar="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-fitness\7.8.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="77a9dcb5f8b1dba36aacaa9c150eb0942dbea158">
-        <dex dex="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\pre-dexed\debug\classes-5b9a39624d126cf8f57e06795fd8ca7ffd7d1ab5.jar" />
-    </item>
-    <item
-        jar="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\22.2.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="dcf8c83c3dead00a6c4fe313e95f7aaca20dc641">
-        <dex dex="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\pre-dexed\debug\classes-01ac762969da7274dce29ac6535c425824404efb.jar" />
-    </item>
-    <item
-        jar="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\src\main\libs\ParseFacebookUtilsV4-1.10.3.jar"
+        jar="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/src/main/libs/ParseFacebookUtilsV4-1.10.3.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="30f5f2c4ac77cfa3b5584766e3e40503bd927ae9">
-        <dex dex="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\pre-dexed\debug\ParseFacebookUtilsV4-1.10.3-f82b7f33f824742a67fd3eaa046d32aa3a61182a.jar" />
+        <dex dex="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/pre-dexed/debug/ParseFacebookUtilsV4-1.10.3-05620becc5b221ca47fcafa68ce3051b85efd8f4.jar" />
     </item>
     <item
-        jar="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\src\main\libs\sinch-android-rtc-3.7.1.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="bf69cf98f8d8eb6c78ec7d0a0bcb016e95f79b5e">
-        <dex dex="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\pre-dexed\debug\sinch-android-rtc-3.7.1-9c029bdbd1a053141e1e6bb20194452a3e1f97b1.jar" />
-    </item>
-    <item
-        jar="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\7.8.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="c756d14e99d39471e99013a1e8fd2f3813ed42bf">
-        <dex dex="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\pre-dexed\debug\classes-89b7ddf435116cd696d90ad9f96435674368ff82.jar" />
-    </item>
-    <item
-        jar="C:\Users\sam\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-android\1.3.0\27cabf3558be23a89f054334dd92512645ad34d9\bolts-android-1.3.0.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="27cabf3558be23a89f054334dd92512645ad34d9">
-        <dex dex="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\pre-dexed\debug\bolts-android-1.3.0-77d1d0eae4a371bb0824901ec57fb2b9d1cdb819.jar" />
-    </item>
-    <item
-        jar="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\7.8.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="6e85edfc9b5346d216e50ccef1f8e825504144a3">
-        <dex dex="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\pre-dexed\debug\classes-6e6cb7dfb2c33bc7eff02e1ea71e3070161483f9.jar" />
-    </item>
-    <item
-        jar="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\7.8.0\jars\classes.jar"
+        jar="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wearable/7.8.0/jars/classes.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="c5cafb324568d954780abb858c25db7ce675ab3c">
-        <dex dex="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\pre-dexed\debug\classes-87eb07e72f6aa98112edb9f42ae8eb64205c9f5a.jar" />
+        <dex dex="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/pre-dexed/debug/classes-f66c420f5b6935f8d7d6aac0896ee07d3a22aa05.jar" />
     </item>
     <item
-        jar="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\7.8.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="cb6fab7a71fa9ec1f483d44c5fca65ab469d8aca">
-        <dex dex="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\pre-dexed\debug\classes-81e767fbcff8e46a108d597035922cdb25fc5b16.jar" />
-    </item>
-    <item
-        jar="C:\Users\sam\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.1\support-annotations-22.2.1.jar"
+        jar="/Applications/sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.1/support-annotations-22.2.1.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="61a0ff5c29295ec56d7e0bd3d25d95dbf71b4b2b">
-        <dex dex="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.1-b8fd20033692a387a5f71408971e96c1cd3829d8.jar" />
+        <dex dex="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/pre-dexed/debug/support-annotations-22.2.1-4e1b44d52e0deb64bd6f1aee16365fb9809e935c.jar" />
     </item>
     <item
-        jar="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\7.8.0\jars\classes.jar"
+        jar="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-nearby/7.8.0/jars/classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="166e458ee3b5fb5fcff0f936df3f3a788e6c54f3">
-        <dex dex="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\pre-dexed\debug\classes-4052f285dec75406bbc42f7cb952c9b4bfd48451.jar" />
+        sha1="adebe28e0c0c05d34a3bfd76f3275bf4d8ff87b6">
+        <dex dex="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/pre-dexed/debug/classes-7cb34ed255a5fcc5ec5bf9ca681a0e4da2a8d5a9.jar" />
     </item>
     <item
-        jar="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-vision\7.8.0\jars\classes.jar"
+        jar="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-fitness/7.8.0/jars/classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="b99f0b78bbcb76b915bc6529a83b65d4d46990dd">
-        <dex dex="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\pre-dexed\debug\classes-da3e3b499e85d05fb6fb3ca778150fc159005ae0.jar" />
+        sha1="77a9dcb5f8b1dba36aacaa9c150eb0942dbea158">
+        <dex dex="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/pre-dexed/debug/classes-0775a96aebfdb72b9928587592c97b3e2ceb2e98.jar" />
     </item>
     <item
-        jar="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\7.8.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="2491ae1b2a848af1f4f0c795f3117c1bd6a1989f">
-        <dex dex="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\pre-dexed\debug\classes-1403ef28949d6b646e112b098eb43c02f9e1c9b2.jar" />
-    </item>
-    <item
-        jar="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\exploded-aar\de.hdodenhof\circleimageview\2.0.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="031e8b3ab2df4ab43b1017f84417d7e10dfbb8d2">
-        <dex dex="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\pre-dexed\debug\classes-d1d83c5107ebcd03d466b073a4e3978ada1f205f.jar" />
-    </item>
-    <item
-        jar="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\7.8.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="c2ac04c5b232f6f0658ee4f1c13be09cd76406e2">
-        <dex dex="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\pre-dexed\debug\classes-f6bfc7edb2ac063351fe39f83a1cf982910dd829.jar" />
-    </item>
-    <item
-        jar="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-identity\7.8.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="d11330ea68c0d964d30d5caed1f27e6b1488b189">
-        <dex dex="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\pre-dexed\debug\classes-4d419891692b33dcb89d815c57d050a9e91c670e.jar" />
-    </item>
-    <item
-        jar="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\libs\internal_impl-22.2.1.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="c471eaaba13ff64f6e0383d1c30a9cdc9a97efeb">
-        <dex dex="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.1-7af3503acc30e02a59975b990769a7804a15ceae.jar" />
-    </item>
-    <item
-        jar="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\7.8.0\jars\classes.jar"
+        jar="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/7.8.0/jars/classes.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="4a135d56554069e5d0ff80e3220e887e57146ee5">
-        <dex dex="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\pre-dexed\debug\classes-355ae4924f074e11c0895ca6c915cc8e0e83daa0.jar" />
+        <dex dex="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/pre-dexed/debug/classes-c99076424232de66158fc3f02fa70974181ce86d.jar" />
     </item>
     <item
-        jar="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\22.0.0\jars\classes.jar"
+        jar="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/jars/classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="11842de6a309c447b3a3d60d73ad637a87c58994">
-        <dex dex="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\pre-dexed\debug\classes-7b7fddb2a465c5e028e87d03e10d5028a575f413.jar" />
+        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
+        <dex dex="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/pre-dexed/debug/classes-a3ff3b3facdf47cb406e9e423a212c156985da1a.jar" />
     </item>
     <item
-        jar="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\22.2.0\jars\libs\internal_impl-22.2.0.jar"
+        jar="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.7.0/jars/classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="0632f06970823b7e3436f649bfa65b47035c91d0">
-        <dex dex="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.0-bd0a5885099d8119493055f6b8949ce6b0d948c7.jar" />
+        sha1="5bdb38b7e4b6094891648c1dc4dc08589b460f97">
+        <dex dex="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/pre-dexed/debug/classes-1b53bd7656553b78f173d1ebf07ba4e0be862388.jar" />
     </item>
     <item
-        jar="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\7.8.0\jars\classes.jar"
+        jar="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/7.8.0/jars/classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="2e24e5f1b11170163028277de63f709e42525db4">
-        <dex dex="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\pre-dexed\debug\classes-30bf1beb7a8b962c7376012539f9539ca65f5852.jar" />
+        sha1="e23ea11124bb700eeddd4ab7aa848c615f493850">
+        <dex dex="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/pre-dexed/debug/classes-831cf4acac5aa682df730a22afbde2feb862636f.jar" />
     </item>
     <item
-        jar="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\7.8.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="42a1ee578b62fd1bd28b3307a679dc9ba0791587">
-        <dex dex="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\pre-dexed\debug\classes-06cef1799408b35aa8e0586c2777109219ea0c17.jar" />
-    </item>
-    <item
-        jar="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\7.8.0\jars\classes.jar"
+        jar="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/7.8.0/jars/classes.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="1ff30fa49c07a08c3035d7218a3efebf5680d522">
-        <dex dex="C:\Users\sam\Code\AndroidProjects\POOSDGroup17\app\build\intermediates\pre-dexed\debug\classes-2082506b0395efedd56b07dd74dbbd17d658797c.jar" />
+        <dex dex="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/pre-dexed/debug/classes-631926b84e78102bfc4cc3ef07f6a1ce7e6458f9.jar" />
+    </item>
+    <item
+        jar="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-games/7.8.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="2e24e5f1b11170163028277de63f709e42525db4">
+        <dex dex="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/pre-dexed/debug/classes-9a3a99e6316d13fcaf9d12fd2b1916952a8a36fa.jar" />
+    </item>
+    <item
+        jar="/Users/Kourtney/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/pre-dexed/debug/picasso-2.5.2-0800620926636db33ffd4dd2c4e433fd84e70db6.jar" />
+    </item>
+    <item
+        jar="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appstate/7.8.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="edea92852b40eee716e910af8dad9eeaa58fb0e1">
+        <dex dex="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/pre-dexed/debug/classes-51fcbb18cd01002fef9b1fc07e4c73967b7b0ce6.jar" />
+    </item>
+    <item
+        jar="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/22.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="11842de6a309c447b3a3d60d73ad637a87c58994">
+        <dex dex="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/pre-dexed/debug/classes-07ac6f27a03ac7ed2f8033d2cdd6bc8f4ea995ff.jar" />
+    </item>
+    <item
+        jar="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-identity/7.8.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="d11330ea68c0d964d30d5caed1f27e6b1488b189">
+        <dex dex="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/pre-dexed/debug/classes-1a93af1294399917a5647229a41e4ff48d211dff.jar" />
+    </item>
+    <item
+        jar="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/src/main/libs/sinch-android-rtc-3.7.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="bf69cf98f8d8eb6c78ec7d0a0bcb016e95f79b5e">
+        <dex dex="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/pre-dexed/debug/sinch-android-rtc-3.7.1-d9f4b642639016b981ecff188584107d3c70970d.jar" />
+    </item>
+    <item
+        jar="/Users/Kourtney/.gradle/caches/modules-2/files-2.1/com.parse/parse-android/1.11.0/6592129dec2caa8791d322c7e4b6b7a30e8eadae/parse-android-1.11.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="6592129dec2caa8791d322c7e4b6b7a30e8eadae">
+        <dex dex="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/pre-dexed/debug/parse-android-1.11.0-25d62eb622e54fd1b8dcae98baf4da7a7f1ff4fa.jar" />
+    </item>
+    <item
+        jar="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/7.8.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="c2ac04c5b232f6f0658ee4f1c13be09cd76406e2">
+        <dex dex="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/pre-dexed/debug/classes-08340f78464610969f5c86289da37a24dd7f4e6a.jar" />
+    </item>
+    <item
+        jar="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/7.8.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="cb6fab7a71fa9ec1f483d44c5fca65ab469d8aca">
+        <dex dex="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/pre-dexed/debug/classes-48738957eaf35c3cbd9ba730e02c9d247bc8830b.jar" />
+    </item>
+    <item
+        jar="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appinvite/7.8.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="98137c4d12c50923f5809852b1ef4d1c4e162081">
+        <dex dex="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/pre-dexed/debug/classes-7685addc4bbe804b3df1c4f5a405d113b014bbc5.jar" />
+    </item>
+    <item
+        jar="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-vision/7.8.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="b99f0b78bbcb76b915bc6529a83b65d4d46990dd">
+        <dex dex="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/pre-dexed/debug/classes-6a824d87bd743a042495cb74de9f3ceb2cfb2661.jar" />
+    </item>
+    <item
+        jar="/Users/Kourtney/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.3.0/8a62fd16fcc1c06f284fc98e6cbded2a5af1dd4c/bolts-tasks-1.3.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="8a62fd16fcc1c06f284fc98e6cbded2a5af1dd4c">
+        <dex dex="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/pre-dexed/debug/bolts-tasks-1.3.0-792736ac1aa0e69f8717d775fa38a04797ec540e.jar" />
+    </item>
+    <item
+        jar="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/22.2.0/jars/libs/internal_impl-22.2.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="0632f06970823b7e3436f649bfa65b47035c91d0">
+        <dex dex="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.0-ff09a538081408b7787630702677eb27ae1e3a9a.jar" />
+    </item>
+    <item
+        jar="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/7.8.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="130b32ed466fa0f63efd4c7d6250ccd2ed506790">
+        <dex dex="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/pre-dexed/debug/classes-06e82910c0b6f57b879812308c931deda5f52baa.jar" />
+    </item>
+    <item
+        jar="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-plus/7.8.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="2491ae1b2a848af1f4f0c795f3117c1bd6a1989f">
+        <dex dex="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/pre-dexed/debug/classes-f2fd74aad5d52184bd209bfee14f91c48ffe4cb2.jar" />
+    </item>
+    <item
+        jar="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/22.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="dcf8c83c3dead00a6c4fe313e95f7aaca20dc641">
+        <dex dex="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/pre-dexed/debug/classes-b104c3d701aa443dc6db0b0bd404ce3bdcdbc912.jar" />
+    </item>
+    <item
+        jar="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-safetynet/7.8.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="166e458ee3b5fb5fcff0f936df3f3a788e6c54f3">
+        <dex dex="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/pre-dexed/debug/classes-9f502837fc9261768e91c1ce036d37d26ad42f50.jar" />
+    </item>
+    <item
+        jar="/Users/Kourtney/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.3.0/27cabf3558be23a89f054334dd92512645ad34d9/bolts-android-1.3.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="27cabf3558be23a89f054334dd92512645ad34d9">
+        <dex dex="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/pre-dexed/debug/bolts-android-1.3.0-1789519fc356d87205337873ea64dc4bf752d53c.jar" />
+    </item>
+    <item
+        jar="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-panorama/7.8.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="6e85edfc9b5346d216e50ccef1f8e825504144a3">
+        <dex dex="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/pre-dexed/debug/classes-1e37d39919db83d4e41acca01b3f5be2a15aaf82.jar" />
+    </item>
+    <item
+        jar="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-drive/7.8.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="42a1ee578b62fd1bd28b3307a679dc9ba0791587">
+        <dex dex="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/pre-dexed/debug/classes-0a80de3f4cc296b71d846765ada02d8fc275b18c.jar" />
+    </item>
+    <item
+        jar="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/7.8.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="c756d14e99d39471e99013a1e8fd2f3813ed42bf">
+        <dex dex="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/pre-dexed/debug/classes-6bf9671deb6f792d133e8338742bbbe0d4b67f65.jar" />
+    </item>
+    <item
+        jar="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.1/jars/libs/internal_impl-22.2.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="c471eaaba13ff64f6e0383d1c30a9cdc9a97efeb">
+        <dex dex="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.1-b9008b4713aae95b2346c66b578972378ef7eb61.jar" />
+    </item>
+    <item
+        jar="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/exploded-aar/de.hdodenhof/circleimageview/2.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="031e8b3ab2df4ab43b1017f84417d7e10dfbb8d2">
+        <dex dex="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/pre-dexed/debug/classes-3b17dd8c9e41cc20e28a355df1905bab3ec0ff12.jar" />
+    </item>
+    <item
+        jar="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/22.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="c6d79137693d494dee16372d3921f919eb724ced">
+        <dex dex="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/pre-dexed/debug/classes-1beddb0b0fc0fa0fcb84b475618d2bbac47b9a28.jar" />
+    </item>
+    <item
+        jar="/Users/Kourtney/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-applinks/1.3.0/bc535105332645408ef5f1380215cc954b842178/bolts-applinks-1.3.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="bc535105332645408ef5f1380215cc954b842178">
+        <dex dex="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/pre-dexed/debug/bolts-applinks-1.3.0-37b36c953318ca752734f7a8f5ed614cc989a01a.jar" />
+    </item>
+    <item
+        jar="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="f8efd0096475e0daf054267b61544e10dc776503">
+        <dex dex="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/pre-dexed/debug/classes-c179f15ec780c286e4be72c59c5b41db56d2abc4.jar" />
+    </item>
+    <item
+        jar="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics/7.8.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="0124ce31248c0e8acfa2b28283c6d1a4d76e73d2">
+        <dex dex="/Users/Kourtney/AndroidStudioProjects/POOSDGroup17/app/build/intermediates/pre-dexed/debug/classes-3c30040a676806dcb78f418f89695a741787691a.jar" />
     </item>
 
 </items>

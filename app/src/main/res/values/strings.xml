@@ -32,7 +32,7 @@
     <string name="title_activity_user_details">UserDetailsActivity</string>
     <string name="gender">Gender</string>
     <string name="interests">Interests</string>
-    <string name="view_interests">View Interests</string>
+    <string name="view_interests">Add Interests</string>
     <string name="title_activity_profile">ProfileActivity</string>
     <string name="map_search">MapSearch</string>
     <string name="DistanceText">Search Range (0-100)</string>
@@ -53,6 +53,7 @@
     <string name="title_activity_test_interests">TestInterestsActivity</string>
     <string name="title_activity_main_category">MainCategoryActivity</string>
     <string name="title_activity_distance">DistanceActivity</string>
+    <string name="title_activity_chat">ChatActivity</string>
     <string name="message_hint">Say anything</string>
     <string name="send">Send</string>
 

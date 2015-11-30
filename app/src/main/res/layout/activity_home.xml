@@ -1,131 +1,76 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".HomeActivity"
-    android:weightSum="1">
+    android:gravity="center"
+    android:weightSum="1" >
 
-
-    <!--<LinearLayout-->
-        <!--android:orientation="horizontal"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:id="@+id/select_interest">-->
-
-        <!--<TextView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="Select interest"-->
-            <!--android:id="@+id/textView" />-->
-
-        <!--<Spinner-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:id="@+id/spinner" />-->
-
-    <!--</LinearLayout>-->
-
-    <!--<LinearLayout-->
-        <!--android:orientation="horizontal"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="80dp"-->
-        <!--android:id="@+id/select_distance">-->
-
-        <!--<TextView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="Select distance"-->
-            <!--android:id="@+id/textView2" />-->
-
-        <!--<Spinner-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:id="@+id/spinner2" />-->
-    <!--</LinearLayout>-->
-
-    <Button
-        android:background="@drawable/blue_button"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/home_big_button_height"
-        android:textSize="@dimen/home_big_button_textSize"
-        android:layout_marginTop="1dp"
-        android:textColor="@color/mother_trucking_white"
-        android:text="@string/searchButton"
-        android:id="@+id/search_button"
-        android:onClick="searchMap"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textAllCaps="true"
+            android:text="Target Guys Nearby"
+            android:textColor="@color/blue"
+            android:textSize="40dp"
+            android:gravity="center"
+            android:layout_marginTop="40dp"/>
+
+        <ImageView
+            android:id="@+id/targetGuy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:src="@mipmap/targetguy"
+            android:layout_marginTop="30dp"/>
 
 
-    <Button
-        android:background="@drawable/blue_button"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/home_big_button_height"
-        android:textSize="@dimen/home_big_button_textSize"
-        android:layout_marginTop="1dp"
-        android:textColor="@color/mother_trucking_white"
-        android:id="@+id/interests"
-        android:text="@string/view_interests"
-        android:onClick="viewInterests"/>
+        <Button
+            android:background="@drawable/blue_button"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/home_big_button_height"
+            android:textSize="@dimen/home_big_button_textSize"
+            android:layout_marginTop="50dp"
+            android:textColor="@color/mother_trucking_white"
+            android:id="@+id/interests"
+            android:text="@string/view_interests"
+            android:onClick="viewInterests"/>
 
 
-    <Button
-        android:background="@drawable/blue_button"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/home_big_button_height"
-        android:textSize="@dimen/home_big_button_textSize"
-        android:layout_marginTop="1dp"
-        android:textColor="@color/mother_trucking_white"
-        android:id="@+id/profile"
-        android:text="View Profile"
-        android:onClick="viewProfile"/>
-    <Button
-        android:background="@drawable/blue_button"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/home_big_button_height"
-        android:textSize="@dimen/home_big_button_textSize"
-        android:layout_marginTop="1dp"
-        android:textColor="@color/mother_trucking_white"
-        android:id="@+id/matches"
-        android:text="View Matches"
-        android:onClick="viewMatches"/>
+        <Button
+            android:background="@drawable/blue_button"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/home_big_button_height"
+            android:layout_marginTop="1dp"
+            android:textSize="@dimen/home_big_button_textSize"
+            android:textColor="@color/mother_trucking_white"
+            android:id="@+id/profile"
+            android:text="View Your Profile"
+            android:onClick="viewProfile" />
 
-    <Button
-        android:background="@drawable/blue_button"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/home_big_button_height"
-        android:textSize="@dimen/home_big_button_textSize"
-        android:layout_marginTop="1dp"
-        android:textColor="@color/mother_trucking_white"
-        android:id="@+id/chat"
-        android:text="Conversations"
-        android:onClick="viewChat"/>
+    </LinearLayout>
 
-    <Button
-        android:background="@drawable/blue_button"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/home_big_button_height"
-        android:textSize="@dimen/home_big_button_textSize"
-        android:layout_marginTop="1dp"
-        android:textColor="@color/mother_trucking_white"
-        android:id="@+id/logout"
-        android:text="@string/logout"
-        android:onClick="logout"/>
+        <Button
+            android:background="@drawable/blue_button"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/home_big_button_height"
+            android:textSize="@dimen/home_big_button_textSize"
+            android:layout_marginTop="1dp"
+            android:textColor="@color/mother_trucking_white"
+            android:id="@+id/logout"
+            android:text="@string/logout"
+            android:onClick="logout"
+            android:layout_alignParentBottom="true"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:id="@+id/does_this_even_matter"
-        android:text="Connections"
-        android:layout_gravity="center_horizontal"
-        android:textAllCaps="true"
-        android:drawableBottom="@color/blue"
-        />
 
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/listView"
-        android:layout_gravity="center_horizontal" />
+</RelativeLayout>
 
-</LinearLayout>
+
+
