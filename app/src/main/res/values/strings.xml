@@ -53,6 +53,11 @@
     <string name="title_activity_test_interests">TestInterestsActivity</string>
     <string name="title_activity_main_category">MainCategoryActivity</string>
     <string name="title_activity_distance">DistanceActivity</string>
+    <string name="message_hint">Say anything</string>
+    <string name="send">Send</string>
+
+    <string name="profile_me">My Profile Pic</string>
+    <string name="profile_other">Other Profile Pic</string>
 
 
 </resources>
