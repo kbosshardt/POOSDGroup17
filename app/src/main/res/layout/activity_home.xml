@@ -54,16 +54,7 @@
         android:text="@string/searchButton"
         android:id="@+id/search_button"
         android:onClick="searchMap"/>
-    <Button
-        android:background="@drawable/blue_button"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/home_big_button_height"
-        android:textSize="@dimen/home_big_button_textSize"
-        android:layout_marginTop="1dp"
-        android:textColor="@color/mother_trucking_white"
-        android:id="@+id/logout"
-        android:text="@string/logout"
-        android:onClick="logout"/>
+
 
     <Button
         android:background="@drawable/blue_button"
@@ -109,6 +100,16 @@
         android:text="Conversations"
         android:onClick="viewChat"/>
 
+    <Button
+        android:background="@drawable/blue_button"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/home_big_button_height"
+        android:textSize="@dimen/home_big_button_textSize"
+        android:layout_marginTop="1dp"
+        android:textColor="@color/mother_trucking_white"
+        android:id="@+id/logout"
+        android:text="@string/logout"
+        android:onClick="logout"/>
 
     <TextView
         android:layout_width="wrap_content"

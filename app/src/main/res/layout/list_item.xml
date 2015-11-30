@@ -3,14 +3,25 @@
     android:layout_width="match_parent"
     android:layout_height="55dip"
     android:orientation="vertical" >
-
-    <TextView
-        android:id="@+id/lblListItem"
-        android:layout_width="fill_parent"
+    <!--android:background="#458ecd17"-->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="17dip"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        android:paddingLeft="?android:attr/expandableListPreferredChildPaddingLeft" />
+        android:orientation="horizontal">
+
+        <CheckedTextView
+            android:textColor="@color/dark_grey_text_color"
+            android:id="@+id/lblListItem"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="17dip"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:clickable="true"
+            android:paddingLeft="?android:attr/expandableListPreferredChildPaddingLeft"
+            android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+            android:checked="false"/>
+
+    </LinearLayout>
 
 </RelativeLayout>

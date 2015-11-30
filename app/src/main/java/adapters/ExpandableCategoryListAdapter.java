@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
+import android.widget.CheckedTextView;
 
 import com.poosdseventeen.targetguys.R;
 
@@ -52,12 +53,22 @@ public class ExpandableCategoryListAdapter extends BaseExpandableListAdapter {
             convertView = infalInflater.inflate(R.layout.list_item, null);
         }
 
-        TextView txtListChild = (TextView) convertView
+        final CheckedTextView txtListChild = (CheckedTextView) convertView
                 .findViewById(R.id.lblListItem);
-
         txtListChild.setText(childText);
+        txtListChild.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(txtListChild.isChecked())
+                    txtListChild.setChecked(false);
+                else
+                    txtListChild.setChecked(true);
+            }
+        });
         return convertView;
     }
+
+
 
     @Override
     public int getChildrenCount(int groupPosition) {

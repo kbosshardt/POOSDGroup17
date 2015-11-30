@@ -15,5 +15,7 @@
     <color name="dark_grey_text_color">#6C7A89</color>
     <color name="dark_grey_button_transition">#bbbbbb</color>
 
+    <color name="flat_green">#8ecd17</color>
+
     <!--<color name="dark_grey_text"></color>-->
 </resources>
