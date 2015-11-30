@@ -204,7 +204,7 @@ public class HomeActivity extends AppCompatActivity {
 
     public void viewMatches(View v){
         Intent intent = new Intent(getApplicationContext(), ListMatchActivity.class);
-
+        Intent serviceIntent = new Intent(getApplicationContext(), ChatActivity.class);
         PendingIntent pendingIntent =
                 TaskStackBuilder.create(this)
                         .addNextIntentWithParentStack(intent).getPendingIntent(0,PendingIntent.FLAG_UPDATE_CURRENT);
@@ -212,6 +212,7 @@ public class HomeActivity extends AppCompatActivity {
         builder.setContentIntent(pendingIntent);
 
         startActivity(intent);
+        startActivity(serviceIntent);
     }
 
 }

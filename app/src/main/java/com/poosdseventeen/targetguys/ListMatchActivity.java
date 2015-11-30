@@ -1,5 +1,6 @@
 package com.poosdseventeen.targetguys;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -64,6 +65,8 @@ public class ListMatchActivity extends AppCompatActivity {
             public void done(List<ParseUser> user, ParseException e) {
                 if (e == null) {
                     //start the messaging activity
+                    Intent intent = new Intent(getApplicationContext(), ChatActivity.class);
+                    startService(intent);
                 } else {
                     Toast.makeText(getApplicationContext(),
                             "Error finding that user",

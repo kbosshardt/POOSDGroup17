@@ -99,6 +99,6 @@
         android:paddingTop="@dimen/com_facebook_share_button_padding_top"
         android:paddingRight="@dimen/com_facebook_share_button_padding_right"
         android:paddingBottom="@dimen/com_facebook_share_button_padding_bottom"
-        android:onClick="onLogoutClick"/>
+        android:onClick="logout"/>
 
 </LinearLayout>

@@ -213,7 +213,7 @@ public class SearchMap extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
 
                         Intent intent = new Intent(getApplicationContext(), ChatActivity.class);
-
+                        //maybe put extra here for username and profile pic
                         PendingIntent pendingIntent =
                                 TaskStackBuilder.create(SearchMap.this)
                                         .addNextIntentWithParentStack(intent).getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
