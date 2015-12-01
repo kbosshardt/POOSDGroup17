@@ -205,7 +205,6 @@ public class UserDetailsActivity extends AppCompatActivity {
                 userPicture.setImageBitmap(thumbnail);
                 saveImage(thumbnail);
 
-                saveImage(thumbnail);
             } else if (requestCode == REQUEST_TAKE_PHOTO) {
                 Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
 

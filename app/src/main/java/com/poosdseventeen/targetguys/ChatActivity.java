@@ -1,34 +1,21 @@
 package com.poosdseventeen.targetguys;
 
 import android.app.Activity;
-import android.app.Service;
 import android.content.Intent;
-import android.os.Binder;
 import android.os.Bundle;
-import android.os.IBinder;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.parse.FindCallback;
 import com.parse.ParseException;
-import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
-import com.sinch.android.rtc.ClientRegistration;
-import com.sinch.android.rtc.Sinch;
-import com.sinch.android.rtc.SinchClient;
-import com.sinch.android.rtc.SinchClientListener;
-import com.sinch.android.rtc.SinchError;
-import com.sinch.android.rtc.messaging.MessageClient;
-import com.sinch.android.rtc.messaging.MessageClientListener;
-import com.sinch.android.rtc.messaging.WritableMessage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -146,21 +133,58 @@ public class ChatActivity extends Activity{
     private EditText etMessage;
     private Button btSend;
 
+
+
+    private static final String TO_USER_ID_KEY = "toUserId";
+    private String toUserId;
+    private String fromUserId;
+    ParseUser currentUser = ParseUser.getCurrentUser();
+    private Button viewMessagesButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
         // User login
-        if (ParseUser.getCurrentUser() != null) { // start with existing user
+        if (currentUser != null) { // start with existing user
+            Intent intent1 = getIntent();
+            toUserId = intent1.getStringExtra("selectedUser");
+            fromUserId = intent1.getStringExtra("fromUser");
+
             startWithCurrentUser();
+            receiveMessage();
         } else { // If not logged in, login as a new anonymous user
             login();
         }
+
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_profile, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
 
     // Get the userId from the cached currentUser object
     private void startWithCurrentUser() {
-        sUserId = ParseUser.getCurrentUser().getObjectId();
+        sUserId = currentUser.getObjectId();
         setupMessagePosting();
     }
 
@@ -174,6 +198,8 @@ public class ChatActivity extends Activity{
         mFirstLoad = true;
         mAdapter = new ChatListAdapter(ChatActivity.this, sUserId, mMessages);
         lvChat.setAdapter(mAdapter);
+
+
         btSend.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -182,21 +208,65 @@ public class ChatActivity extends Activity{
                 // Use Message model to create new messages now
                 Message message = new Message();
                 message.setUserId(sUserId);
+                message.put("toUserId", toUserId);
+                message.put("fromUserId", fromUserId);
+                message.saveInBackground();
                 message.setBody(body);
+                message.pinInBackground();
                 message.saveInBackground(new SaveCallback() {
                     @Override
                     public void done(ParseException e) {
-                        receiveMessage();
+                        reload();
+
+                        //receiveMessage();
+
                     }
                 });
                 etMessage.setText("");
+
+
+            }
+        });
+
+
+    }
+
+    private void reload(){
+        ParseQuery<Message> query = ParseQuery.getQuery("Message");
+        query.whereMatches("toUserId", toUserId);
+        query.whereMatches("fromUserId", currentUser.getUsername());
+        // Configure limit and sort order
+        query.setLimit(MAX_CHAT_MESSAGES_TO_SHOW);
+        query.orderByAscending("createdAt");
+        query.fromLocalDatastore();
+        query.findInBackground(new FindCallback<Message>() {
+            public void done(List<Message> messages, ParseException e) {
+                if (e == null) {
+                    //mMessages.clear();
+                    mMessages.addAll(messages);
+                    mAdapter.notifyDataSetChanged(); // update adapter
+                    // Scroll to the bottom of the list on initial load
+                    if (mFirstLoad) {
+                        lvChat.setSelection(mAdapter.getCount() - 1);
+                        mFirstLoad = false;
+                    }
+                } else {
+                    Log.d("message", "Error: " + e.getMessage());
+                }
             }
         });
     }
 
+
+
+
+
     private void receiveMessage() {
         // Construct query to execute
-        ParseQuery<Message> query = ParseQuery.getQuery(Message.class);
+        //ParseQuery<Message> query = ParseQuery.getQuery(Message.class);
+        ParseQuery<Message> query = ParseQuery.getQuery("Message");
+        query.whereMatches("toUserId", toUserId);
+        query.whereMatches("fromUserId", currentUser.getUsername());
         // Configure limit and sort order
         query.setLimit(MAX_CHAT_MESSAGES_TO_SHOW);
         query.orderByAscending("createdAt");

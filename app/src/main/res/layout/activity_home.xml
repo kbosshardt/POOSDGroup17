@@ -55,6 +55,17 @@
             android:text="View Your Profile"
             android:onClick="viewProfile" />
 
+        <!--<Button-->
+            <!--android:background="@drawable/blue_button"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="@dimen/home_big_button_height"-->
+            <!--android:layout_marginTop="1dp"-->
+            <!--android:textSize="@dimen/home_big_button_textSize"-->
+            <!--android:textColor="@color/mother_trucking_white"-->
+            <!--android:id="@+id/viewMessagesButton"-->
+            <!--android:text="View Your Messages"-->
+            <!--android:onClick="viewMessages"/>-->
+
     </LinearLayout>
 
         <Button

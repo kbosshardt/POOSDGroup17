@@ -13,6 +13,8 @@ import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -96,6 +98,28 @@ public class SearchMap extends AppCompatActivity {
 
         setUpMap();
         setUpUsersList();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_profile, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     private void setUpMap() {
@@ -186,6 +210,7 @@ public class SearchMap extends AppCompatActivity {
             public void onItemClick(AdapterView<?> arg0, View v, int position, long arg3) {
 
                 final String selectedUser = showUsers.get(position).toString();
+                final String fromUser = currentUser.getUsername();
 
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(SearchMap.this);
                 alertDialogBuilder.setMessage("Choose an option");
@@ -213,6 +238,8 @@ public class SearchMap extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
 
                         Intent intent = new Intent(getApplicationContext(), ChatActivity.class);
+                        intent.putExtra("selectedUser", selectedUser);
+                        intent.putExtra("fromUser", fromUser);
                         //maybe put extra here for username and profile pic
                         PendingIntent pendingIntent =
                                 TaskStackBuilder.create(SearchMap.this)
@@ -249,7 +276,6 @@ public class SearchMap extends AppCompatActivity {
                     interestQuery.findInBackground(new FindCallback<ParseObject>() {
                         public void done(List<ParseObject> interestsList, ParseException e) {
                             if (e == null) {
-                                Log.d("User interests", "Retrieved " + interestsList.size() + " interests for this user");
                                 for (int i = 0; i < interestsList.size(); i++) {
                                     currentUserInterests.add(interestsList.get(i).getString("name"));
                                     Log.d("OTHER USERES", currentUserInterests.get(i));
@@ -275,7 +301,6 @@ public class SearchMap extends AppCompatActivity {
                                         otherUsers.add(interestsList.get(j).getString("name"));
                                     }
                                     if (!Collections.disjoint(currentUserInterests, otherUsers) && userList.get(k).getString("username") != currentUser.getString("username")) {
-                                        Log.d("IAMMMMM", "HEREEEEEEEEE");
                                         showUsers.add(userList.get(k).getString("username"));
                                         googleMap.addMarker(new MarkerOptions().position(new LatLng(userList.get(k).getParseGeoPoint("location").getLatitude(), userList.get(k).getParseGeoPoint("location").getLongitude())).title(userList.get(k).getString("name")));
                                     }

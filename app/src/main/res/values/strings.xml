@@ -27,6 +27,7 @@
 
     <string name="facebook_app_id">755245647932115</string>
     <string name="title_activity_interest">InterestActivity</string>
+    <string name="title_activity_messages">View MessagesActivity</string>
     <string name="action_search">Search</string>
     <string name="no_interest_category_data">No categories to display.</string>
     <string name="title_activity_user_details">UserDetailsActivity</string>
@@ -50,7 +51,6 @@
         <item>Take photo</item>
         <item>Get existing photo</item>
     </string-array>
-    <string name="title_activity_test_interests">TestInterestsActivity</string>
     <string name="title_activity_main_category">MainCategoryActivity</string>
     <string name="title_activity_distance">DistanceActivity</string>
     <string name="title_activity_chat">ChatActivity</string>
@@ -59,6 +59,7 @@
 
     <string name="profile_me">My Profile Pic</string>
     <string name="profile_other">Other Profile Pic</string>
+    <string name="title_activity_view_messages">ViewMessages</string>
 
 
 </resources>

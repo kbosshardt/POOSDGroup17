@@ -72,23 +72,6 @@ public class HomeActivity extends AppCompatActivity {
     }
 
 
-//    public void searchMap(View v){
-//        Intent intent = new Intent(HomeActivity.this, SearchMap.class);
-//
-//        // Use TaskStackBuilder to build the back stack and get the PendingIntent
-//        PendingIntent pendingIntent =
-//                TaskStackBuilder.create(this)
-//                        // add all of DetailsActivity's parents to the stack,
-//                        // followed by DetailsActivity itself
-//                        .addNextIntentWithParentStack(intent).getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
-//
-//        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
-//        builder.setContentIntent(pendingIntent);
-//
-//
-//        startActivity(intent);
-//    }
-
     public void viewInterests(View v){
         Intent intent = new Intent(HomeActivity.this, CategoryActivity.class);
         // Use TaskStackBuilder to build the back stack and get the PendingIntent
@@ -105,17 +88,6 @@ public class HomeActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-//    public void viewChat(View v){
-//        Intent intent = new Intent(getApplicationContext(), ChatActivity.class);
-//
-//        PendingIntent pendingIntent =
-//                TaskStackBuilder.create(this)
-//                            .addNextIntentWithParentStack(intent).getPendingIntent(0,PendingIntent.FLAG_UPDATE_CURRENT);
-//        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
-//        builder.setContentIntent(pendingIntent);
-//
-//        startActivity(intent);
-//    }
 
     public void viewProfile(View v){
         Intent intent = new Intent(HomeActivity.this, UserDetailsActivity.class);
@@ -132,80 +104,26 @@ public class HomeActivity extends AppCompatActivity {
 
 
         startActivity(intent);
+
     }
 
-//    public void populateUsers(){
+
+//    public void viewMessages(View v){
+//        Intent intent = new Intent(HomeActivity.this, ViewMessages.class);
+//
+//        // Use TaskStackBuilder to build the back stack and get the PendingIntent
+//        PendingIntent pendingIntent =
+//                TaskStackBuilder.create(this)
+//                        // add all of DetailsActivity's parents to the stack,
+//                        // followed by DetailsActivity itself
+//                        .addNextIntentWithParentStack(intent).getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
+//
+//        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+//        builder.setContentIntent(pendingIntent);
 //
 //
-//        ParseQuery<ParseUser> query = ParseUser.getQuery();
-//        query.findInBackground(new FindCallback<ParseUser>() {
-//            public void done(List<ParseUser> objects, ParseException e) {
-//
-//                ParseUser user;
-//                if (e == null) {
-//                    for (int i = 0; i < objects.size(); i++) {
-//                        user = objects.get(i);
-//                        allUsers.add(user.getString("name"));
-//                    }
-//
-//                    setUpAdapter();
-//
-//                } else {
-//                    // Something went wrong.
-//                }
-//            }
-//        });
+//        startActivity(intent);
 //    }
 
-//    private void setUpAdapter(){
-//
-//        ListView usersList =(ListView)findViewById(R.id.listView);
-//        ArrayAdapter<String> arrayAdapter =
-//                new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, allUsers);
-//        // Set The Adapter
-//        usersList.setAdapter(arrayAdapter);
-//
-//        // register onClickListener to handle click events on each item
-//        usersList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            // argument position gives the index of item which is clicked
-//            public void onItemClick(AdapterView<?> arg0, View v, int position, long arg3) {
-//
-//                String selectedUser = allUsers.get(position).toString();
-//                goToProfileActivity(selectedUser);
-//            }
-//        });
-//    }
-
-    private void goToProfileActivity(String selectedUser){
-        Intent intent = new Intent(HomeActivity.this, ProfileActivity.class);
-        intent.putExtra("selectedUser", selectedUser);
-
-        // Use TaskStackBuilder to build the back stack and get the PendingIntent
-        PendingIntent pendingIntent =
-                TaskStackBuilder.create(this)
-                        // add all of DetailsActivity's parents to the stack,
-                        // followed by DetailsActivity itself
-                        .addNextIntentWithParentStack(intent).getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
-
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
-        builder.setContentIntent(pendingIntent);
-
-
-        startActivity(intent);
-
-    }
-
-    public void viewMatches(View v){
-        Intent intent = new Intent(getApplicationContext(), ListMatchActivity.class);
-        Intent serviceIntent = new Intent(getApplicationContext(), ChatActivity.class);
-        PendingIntent pendingIntent =
-                TaskStackBuilder.create(this)
-                        .addNextIntentWithParentStack(intent).getPendingIntent(0,PendingIntent.FLAG_UPDATE_CURRENT);
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
-        builder.setContentIntent(pendingIntent);
-
-        startActivity(intent);
-        startActivity(serviceIntent);
-    }
 
 }
