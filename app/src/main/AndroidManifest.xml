@@ -45,6 +45,7 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -55,17 +56,17 @@
         </activity>
         <activity
             android:name=".HomeActivity"
-            android:label="@string/title_activity_home"
+            android:label="@string/app_name"
             android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:label="@string/title_activity_login"
+            android:label="@string/app_name"
             android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".CategoryActivity"
-            android:label="@string/title_activity_interest"
+            android:label="@string/app_name"
             android:parentActivityName=".HomeActivity"
             android:screenOrientation="portrait" >
 
@@ -73,64 +74,69 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".HomeActivity" />
+
             <intent-filter>
                 <action android:name=".HomeActivity" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
             android:name=".SearchMap"
-            android:label="@string/map_search"
+            android:label="@string/app_name"
             android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".HomeActivity" />
+
             <intent-filter>
                 <action android:name=".HomeActivity" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".UserDetailsActivity"
-            android:label="@string/title_activity_user_details"
+            android:label="@string/app_name"
             android:parentActivityName=".HomeActivity"
             android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".HomeActivity" />
+
             <intent-filter>
                 <action android:name=".HomeActivity" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
             android:name=".ProfileActivity"
-            android:label="@string/title_activity_profile"
-            android:parentActivityName=".HomeActivity"
+            android:label="@string/app_name"
+            android:parentActivityName=".SearchMap"
             android:screenOrientation="portrait" >
 
             <!-- The meta-data element is needed for versions lower than 4.1 -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".HomeActivity" />
+                android:value=".SearchMap" />
 
             <intent-filter>
                 <action android:name=".ProfileActivity" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
 >
         </activity>
         <activity
             android:name=".ChatActivity"
-            android:label="@string/title_activity_chat"
+            android:label="@string/app_name"
             android:parentActivityName=".SearchMap"
             android:screenOrientation="portrait" >
         </activity>
-
         <activity
             android:name=".ViewMessages"
-            android:label="@string/title_activity_messages"
+            android:label="@string/app_name"
             android:parentActivityName=".HomeActivity"
             android:screenOrientation="portrait" >
         </activity>
@@ -145,6 +151,10 @@
 
         <uses-library android:name="com.google.android.maps" />
 
+        <activity
+            android:name=".DistanceActivity"
+            android:label="@string/title_activity_distance" >
+        </activity>
     </application>
 
 </manifest>

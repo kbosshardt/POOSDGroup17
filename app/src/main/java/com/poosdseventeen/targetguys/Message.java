@@ -23,4 +23,8 @@ public class Message extends ParseObject {
     public void setBody(String body) {
         put("body", body);
     }
+
+    public String getFromUser(){
+        return getString("fromUserId");
+    }
 }

@@ -31,6 +31,16 @@
             android:src="@mipmap/targetguy"
             android:layout_marginTop="30dp"/>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="By Group 17"
+            android:textColor="@color/darker_blue"
+            android:textSize="32dp"
+            android:gravity="center"
+            android:layout_marginTop="40dp"/>
+
 
         <Button
             android:background="@drawable/blue_button"
@@ -43,6 +53,16 @@
             android:text="@string/view_interests"
             android:onClick="viewInterests"/>
 
+        <Button
+            android:background="@drawable/blue_button"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/home_big_button_height"
+            android:layout_marginTop="1dp"
+            android:textSize="@dimen/home_big_button_textSize"
+            android:textColor="@color/mother_trucking_white"
+            android:id="@+id/searchUsersButton"
+            android:text="Search Users"
+            android:onClick="goToMap" />
 
         <Button
             android:background="@drawable/blue_button"
@@ -55,16 +75,16 @@
             android:text="View Your Profile"
             android:onClick="viewProfile" />
 
-        <!--<Button-->
-            <!--android:background="@drawable/blue_button"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="@dimen/home_big_button_height"-->
-            <!--android:layout_marginTop="1dp"-->
-            <!--android:textSize="@dimen/home_big_button_textSize"-->
-            <!--android:textColor="@color/mother_trucking_white"-->
-            <!--android:id="@+id/viewMessagesButton"-->
-            <!--android:text="View Your Messages"-->
-            <!--android:onClick="viewMessages"/>-->
+        <Button
+            android:background="@drawable/blue_button"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/home_big_button_height"
+            android:layout_marginTop="1dp"
+            android:textSize="@dimen/home_big_button_textSize"
+            android:textColor="@color/mother_trucking_white"
+            android:id="@+id/viewMessagesButton"
+            android:text="View Your Messages"
+            android:onClick="viewMessages"/>
 
     </LinearLayout>
 

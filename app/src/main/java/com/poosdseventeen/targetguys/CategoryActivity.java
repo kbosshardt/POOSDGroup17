@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ExpandableListView;
+import android.widget.Toast;
 
 import com.parse.FindCallback;
 import com.parse.GetCallback;
@@ -226,14 +227,14 @@ public class CategoryActivity extends Activity {
             public boolean onChildClick(ExpandableListView parent, View v,
                                         int groupPosition, int childPosition, long id) {
 
-//                Toast.makeText(
-//                        getApplicationContext(),
-//                        listCategories.get(groupPosition)
-//                                + " : "
-//                                + listInterests.get(
-//                                listCategories.get(groupPosition)).get(
-//                                childPosition), Toast.LENGTH_SHORT)
-//                        .show();
+                Toast.makeText(
+                        getApplicationContext(),
+                        listCategories.get(groupPosition)
+                                + " : "
+                                + listInterests.get(
+                                listCategories.get(groupPosition)).get(
+                                childPosition), Toast.LENGTH_SHORT)
+                        .show();
 
                 userInterests.add(listInterests.get(
                         listCategories.get(groupPosition)).get(
@@ -247,7 +248,7 @@ public class CategoryActivity extends Activity {
     }
 
 
-    public void goToMap(View v){
+    public void saveInterests(View v){
 
         for (String interestName : userInterests) {
             Log.d("User chose", interestName);
@@ -270,10 +271,12 @@ public class CategoryActivity extends Activity {
 
         }
 
+        Intent intent = new Intent(CategoryActivity.this, HomeActivity.class);
 
-        Intent intent = new Intent(CategoryActivity.this, SearchMap.class);
-        String distanceString = distanceEditText.getText().toString();
-        intent.putExtra("distance", distanceString);
+
+//        Intent intent = new Intent(CategoryActivity.this, SearchMap.class);
+//        String distanceString = distanceEditText.getText().toString();
+//        intent.putExtra("distance", distanceString);
 
         // Use TaskStackBuilder to build the back stack and get the PendingIntent
         PendingIntent pendingIntent =

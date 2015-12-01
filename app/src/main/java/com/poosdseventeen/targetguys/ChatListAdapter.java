@@ -9,11 +9,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-//import com.squareup.picasso.Picasso;
+import com.parse.ParseUser;
 
-import java.math.BigInteger;
-import java.security.MessageDigest;
 import java.util.List;
+
+//import com.squareup.picasso.Picasso;
 
 /**
  * Created by sam on 11/29/2015.
@@ -22,6 +22,8 @@ import java.util.List;
 //This will display the messages in a conversation
 public class ChatListAdapter extends ArrayAdapter<Message> {
     private String mUserId;
+
+    private ParseUser currentUser = ParseUser.getCurrentUser();
 
     public ChatListAdapter(Context context, String userId, List<Message> messages) {
         super(context, 0, messages);
@@ -37,6 +39,7 @@ public class ChatListAdapter extends ArrayAdapter<Message> {
             holder.imageLeft = (ImageView)convertView.findViewById(R.id.ivProfileLeft);
             holder.imageRight = (ImageView)convertView.findViewById(R.id.ivProfileRight);
             holder.body = (TextView)convertView.findViewById(R.id.tvBody);
+            holder.name = (TextView)convertView.findViewById(R.id.tvName);
             convertView.setTag(holder);
         }
         final Message message = (Message)getItem(position);
@@ -47,14 +50,17 @@ public class ChatListAdapter extends ArrayAdapter<Message> {
             holder.imageRight.setVisibility(View.VISIBLE);
             holder.imageLeft.setVisibility(View.GONE);
             holder.body.setGravity(Gravity.CENTER_VERTICAL | Gravity.RIGHT);
+            holder.name.setGravity(Gravity.CENTER_VERTICAL | Gravity.RIGHT);
         } else {
             holder.imageLeft.setVisibility(View.VISIBLE);
             holder.imageRight.setVisibility(View.GONE);
             holder.body.setGravity(Gravity.CENTER_VERTICAL | Gravity.LEFT);
+            holder.name.setGravity(Gravity.CENTER_VERTICAL | Gravity.LEFT);
         }
         final ImageView profileView = isMe ? holder.imageRight : holder.imageLeft;
-        //Picasso.with(getContext()).load(getProfileUrl(message.getUserId())).into(profileView);
+
         holder.body.setText(message.getBody());
+        holder.name.setText(message.getFromUser());
         return convertView;
     }
 
@@ -67,6 +73,7 @@ public class ChatListAdapter extends ArrayAdapter<Message> {
         public ImageView imageLeft;
         public ImageView imageRight;
         public TextView body;
+        public TextView name;
     }
 
 }

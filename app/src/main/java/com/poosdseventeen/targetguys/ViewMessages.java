@@ -44,8 +44,11 @@ public class ViewMessages extends Activity{
         if (currentUser != null) { // start with existing user
             startWithCurrentUser();
 
+
+
+
             ParseQuery<Message> query = ParseQuery.getQuery("Message");
-            query.whereMatches("fromUserId", currentUser.getUsername());
+            query.whereMatches("toUserId", currentUser.getUsername());
             // Configure limit and sort order
             query.setLimit(MAX_CHAT_MESSAGES_TO_SHOW);
             query.orderByAscending("createdAt");
@@ -62,6 +65,7 @@ public class ViewMessages extends Activity{
                             lvChat.setSelection(mAdapter.getCount() - 1);
                             mFirstLoad = false;
                         }
+
                     } else {
                         Log.d("message", "Error: " + e.getMessage());
                     }
@@ -126,5 +130,9 @@ public class ViewMessages extends Activity{
         startActivity(intent);
         finish();
     }
+
+
+
+
 
 }

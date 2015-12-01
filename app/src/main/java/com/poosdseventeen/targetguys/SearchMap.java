@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -52,13 +53,16 @@ public class SearchMap extends AppCompatActivity {
     static final LatLng testPoint = new LatLng(21, 57);
     private GoogleMap googleMap;
 
-    ArrayList showUsers =  new ArrayList<String>();
+    ArrayList showUsers = new ArrayList<String>();
 
+    LatLng yourLocation;
     double searchDistance;
-    ParseUser currentUser;
+    ParseUser currentUser = ParseUser.getCurrentUser();
     ParseGeoPoint parseLocation;
     ListView usersList;
 
+    private EditText distanceEditText;
+    Circle circle;
 
 
     @Override
@@ -66,7 +70,8 @@ public class SearchMap extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.map_search);
 
-        usersList = (ListView)findViewById(R.id.users_listview);
+        usersList = (ListView) findViewById(R.id.users_listview);
+
 
         try {
             if (googleMap == null) {
@@ -80,24 +85,13 @@ public class SearchMap extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        Intent intent = new Intent(this, CategoryActivity.class);
-        Bundle extras = getIntent().getExtras();
-        String distanceString = extras.getString("distance");
+//        Intent intent = new Intent(this, CategoryActivity.class);
+//        Bundle extras = getIntent().getExtras();
+//        String distanceString = extras.getString("distance");
 
-        searchDistance = Double.parseDouble(distanceString);
-
-        ParseUser currentUser = ParseUser.getCurrentUser();
-        if(currentUser == null) {
-            startActivity(intent);
-            finish();
-        }
-
-        currentUser.put("searchDistance", searchDistance);
-        currentUser.put("currentlyUsing", true);
 
 
         setUpMap();
-        setUpUsersList();
     }
 
     @Override
@@ -127,22 +121,22 @@ public class SearchMap extends AppCompatActivity {
         // Enable MyLocation Layer of Google Map
         googleMap.setMyLocationEnabled(true);
 
-        LatLng yourLocation = getLocation();
+        yourLocation = getLocation();
         //get Your Current Location
 
         currentUser = ParseUser.getCurrentUser();
 
 
-        if(currentUser == null) {
+        if (currentUser == null) {
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
             finish();
         }
 
-        if(yourLocation == null) {
+        if (yourLocation == null) {
             ParseGeoPoint point = currentUser.getParseGeoPoint("location");
-            if(point == null){
-                AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(this);
+            if (point == null) {
+                AlertDialog.Builder dlgAlert = new AlertDialog.Builder(this);
 
                 dlgAlert.setMessage("No location can be found, please open up Google Maps to get your position then try again.");
                 dlgAlert.setTitle("Error Message...");
@@ -162,21 +156,24 @@ public class SearchMap extends AppCompatActivity {
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(yourLocation, 10);
         googleMap.animateCamera(cameraUpdate);
 
-        double circleRadius = searchDistance/0.00062137;
-
-        Circle circle = googleMap.addCircle(new CircleOptions()
-                .center(yourLocation)
-                .radius(circleRadius)
-                .strokeColor(Color.RED));
-        circle.setCenter(yourLocation);
-
 
         parseLocation = new ParseGeoPoint(yourLocation.latitude, yourLocation.longitude);
         currentUser.put("location", parseLocation);
-
-
-
-        findUsersWithinSearchDistance();
+//
+//        double circleRadius = searchDistance * 1609.34;
+//
+//        circle = googleMap.addCircle(new CircleOptions()
+//                .center(yourLocation)
+//                .radius(circleRadius)
+//                .strokeColor(Color.RED));
+//        circle.setCenter(yourLocation);
+//
+//
+//        parseLocation = new ParseGeoPoint(yourLocation.latitude, yourLocation.longitude);
+//        currentUser.put("location", parseLocation);
+//
+//
+//        findUsersWithinSearchDistance();
 
 
     }
@@ -198,9 +195,9 @@ public class SearchMap extends AppCompatActivity {
         }
     }
 
-    private void setUpUsersList(){
+    private void setUpUsersList() {
         ArrayAdapter<String> arrayAdapter =
-                new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, showUsers);
+                new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, showUsers);
         // Set The Adapter
         usersList.setAdapter(arrayAdapter);
 
@@ -261,8 +258,10 @@ public class SearchMap extends AppCompatActivity {
 
 
     // query users from database based on current location and other users interests, location, and current activity
-    private void findUsersWithinSearchDistance(){
+    private void findUsersWithinSearchDistance() {
         final ArrayList<String> currentUserInterests = new ArrayList<String>();
+
+
         ParseQuery<ParseUser> query = ParseUser.getQuery();
         query.whereExists("location");
         query.whereNotEqualTo("objectId", currentUser.getString("objectId"));
@@ -312,7 +311,6 @@ public class SearchMap extends AppCompatActivity {
                         });
 
 
-
                     }
 
                 } else {
@@ -324,4 +322,36 @@ public class SearchMap extends AppCompatActivity {
         });
     }
 
+    public void reloadMap(View v){
+
+        showUsers.clear();
+        googleMap.clear();
+        Marker TP = googleMap.addMarker(new MarkerOptions().
+                position(yourLocation).title(currentUser.getString("name")));
+
+        distanceEditText = (EditText) findViewById(R.id.distanceEditText);
+        String distanceString = distanceEditText.getText().toString();
+        searchDistance = Double.parseDouble(distanceString);
+//        double radius = searchDistance * 1069.34;
+//        circle.setRadius(radius);
+
+
+
+        double circleRadius = searchDistance * 1609.34;
+
+        circle = googleMap.addCircle(new CircleOptions()
+                .center(yourLocation)
+                .radius(circleRadius)
+                .strokeColor(Color.RED));
+        circle.setCenter(yourLocation);
+
+        currentUser.put("searchDistance", searchDistance);
+        currentUser.put("currentlyUsing", true);
+
+        findUsersWithinSearchDistance();
+        setUpUsersList();
+
+
+
+    }
 }

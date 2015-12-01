@@ -108,22 +108,41 @@ public class HomeActivity extends AppCompatActivity {
     }
 
 
-//    public void viewMessages(View v){
-//        Intent intent = new Intent(HomeActivity.this, ViewMessages.class);
-//
-//        // Use TaskStackBuilder to build the back stack and get the PendingIntent
-//        PendingIntent pendingIntent =
-//                TaskStackBuilder.create(this)
-//                        // add all of DetailsActivity's parents to the stack,
-//                        // followed by DetailsActivity itself
-//                        .addNextIntentWithParentStack(intent).getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
-//
-//        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
-//        builder.setContentIntent(pendingIntent);
-//
-//
-//        startActivity(intent);
-//    }
+    public void viewMessages(View v){
+        Intent intent = new Intent(HomeActivity.this, ViewMessages.class);
+
+        // Use TaskStackBuilder to build the back stack and get the PendingIntent
+        PendingIntent pendingIntent =
+                TaskStackBuilder.create(this)
+                        // add all of DetailsActivity's parents to the stack,
+                        // followed by DetailsActivity itself
+                        .addNextIntentWithParentStack(intent).getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+        builder.setContentIntent(pendingIntent);
+
+
+        startActivity(intent);
+    }
+
+    public void goToMap(View v){
+
+        Intent intent = new Intent(HomeActivity.this, SearchMap.class);
+
+        // Use TaskStackBuilder to build the back stack and get the PendingIntent
+        PendingIntent pendingIntent =
+                TaskStackBuilder.create(this)
+                        // add all of DetailsActivity's parents to the stack,
+                        // followed by DetailsActivity itself
+                        .addNextIntentWithParentStack(intent).getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+        builder.setContentIntent(pendingIntent);
+
+
+        startActivity(intent);
+
+    }
 
 
 }

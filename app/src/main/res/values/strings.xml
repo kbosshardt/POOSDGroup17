@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Target Guys</string>
+    <string name="app_name"> </string>
 
     <string name="action_settings">Settings</string>
     <string name="title_activity_login">LoginActivity</string>
@@ -36,7 +36,7 @@
     <string name="view_interests">Add Interests</string>
     <string name="title_activity_profile">ProfileActivity</string>
     <string name="map_search">MapSearch</string>
-    <string name="DistanceText">Search Range (0-100)</string>
+    <string name="DistanceText">Enter Distance in Miles</string>
 
     <string name="hello_world">Hello world!</string>
 

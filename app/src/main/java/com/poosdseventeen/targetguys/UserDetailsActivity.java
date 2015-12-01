@@ -210,19 +210,6 @@ public class UserDetailsActivity extends AppCompatActivity {
 
                 saveImage(thumbnail);
 
-//                File destination = new File(Environment.getExternalStorageDirectory(),
-//                        System.currentTimeMillis() + ".png");
-//                FileOutputStream fo;
-//                try {
-//                    destination.createNewFile();
-//                    fo = new FileOutputStream(destination);
-//                    fo.write(bytes.toByteArray());
-//                    fo.close();
-//                } catch (FileNotFoundException e) {
-//                    e.printStackTrace();
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
                 userPicture.setImageBitmap(thumbnail);
                 saveImage(thumbnail);
             }

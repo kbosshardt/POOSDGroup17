@@ -11,6 +11,23 @@
     tools:context=".SearchMap">
 
 
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/DistanceText"
+        android:ems="10"
+        android:id="@+id/distanceEditText"/>
+
+    <Button
+        android:background="@drawable/blue_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:id="@+id/nextButton"
+        android:text="Update Distance"
+        android:textColor="#fff"
+        android:onClick="reloadMap" />
+
     <fragment
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.MapFragment"
