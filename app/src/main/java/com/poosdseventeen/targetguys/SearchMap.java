@@ -133,6 +133,7 @@ public class SearchMap extends AppCompatActivity {
             finish();
         }
 
+        /////USE THE PREVIOUSLY STORED LOCATION FROM THE DATABASE, IF ONE EXISTS
         if (yourLocation == null) {
             ParseGeoPoint point = currentUser.getParseGeoPoint("location");
             if (point == null) {
@@ -148,9 +149,9 @@ public class SearchMap extends AppCompatActivity {
             }
             yourLocation = new LatLng(point.getLatitude(), point.getLongitude());
 
-            /////USE THE PREVIOUSLY STORED LOCATION FROM THE DATABASE, IF ONE EXISTS
         }
 
+        //create a point on the map at your location
         Marker TP = googleMap.addMarker(new MarkerOptions().
                 position(yourLocation).title(currentUser.getString("name")));
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(yourLocation, 10);
@@ -159,22 +160,6 @@ public class SearchMap extends AppCompatActivity {
 
         parseLocation = new ParseGeoPoint(yourLocation.latitude, yourLocation.longitude);
         currentUser.put("location", parseLocation);
-//
-//        double circleRadius = searchDistance * 1609.34;
-//
-//        circle = googleMap.addCircle(new CircleOptions()
-//                .center(yourLocation)
-//                .radius(circleRadius)
-//                .strokeColor(Color.RED));
-//        circle.setCenter(yourLocation);
-//
-//
-//        parseLocation = new ParseGeoPoint(yourLocation.latitude, yourLocation.longitude);
-//        currentUser.put("location", parseLocation);
-//
-//
-//        findUsersWithinSearchDistance();
-
 
     }
 
@@ -322,6 +307,7 @@ public class SearchMap extends AppCompatActivity {
         });
     }
 
+    //when a user updates the distance this function is called which
     public void reloadMap(View v){
 
         showUsers.clear();
@@ -332,10 +318,6 @@ public class SearchMap extends AppCompatActivity {
         distanceEditText = (EditText) findViewById(R.id.distanceEditText);
         String distanceString = distanceEditText.getText().toString();
         searchDistance = Double.parseDouble(distanceString);
-//        double radius = searchDistance * 1069.34;
-//        circle.setRadius(radius);
-
-
 
         double circleRadius = searchDistance * 1609.34;
 
@@ -350,8 +332,5 @@ public class SearchMap extends AppCompatActivity {
 
         findUsersWithinSearchDistance();
         setUpUsersList();
-
-
-
     }
 }
