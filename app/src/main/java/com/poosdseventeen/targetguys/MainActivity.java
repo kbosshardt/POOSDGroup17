@@ -9,6 +9,11 @@ import android.view.View;
 
 import com.parse.ParseUser;
 
+/**
+ * Created by Kourtney Bosshardt on 10/16/2015.
+ */
+
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -47,12 +52,14 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    // go to login screen
     public void startLogin(View view){
         Intent intent = new Intent(MainActivity.this, LoginActivity.class);
         //intent.putExtra("key", value);
         startActivity(intent);
     }
 
+    // go to sign up screen
     public void startSignUp(View view){
         Intent intent = new Intent(MainActivity.this, SignUpActivity.class);
         startActivity(intent);

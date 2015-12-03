@@ -13,6 +13,11 @@ import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 
+
+/**
+ * Created by Kourtney Bosshardt on 10/23/2015.
+ */
+
 public class LoginActivity extends AppCompatActivity {
 
     private EditText mEmailField;
@@ -39,6 +44,7 @@ public class LoginActivity extends AppCompatActivity {
         return true;
     }
 
+    // sign user in by getting their info from parse if it exists and then go to home screen
     public void signIn(final View v){
         v.setEnabled(false);
         ParseUser.logInInBackground(mEmailField.getText().toString(), mPasswordField.getText().toString(), new LogInCallback() {
@@ -76,6 +82,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
+    // user has not set up account yet so needs to go to sign up screen
     public void showRegistration(View v) {
         Intent intent = new Intent(this, SignUpActivity.class);
         startActivity(intent);

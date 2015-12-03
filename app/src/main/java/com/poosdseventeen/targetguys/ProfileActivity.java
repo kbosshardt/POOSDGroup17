@@ -34,6 +34,11 @@ import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/**
+ * Created by Kourtney Bosshardt on 10/25/2015.
+ * View current user profile
+ */
 public class ProfileActivity extends AppCompatActivity {
 
     private String userName;
@@ -81,7 +86,8 @@ public class ProfileActivity extends AppCompatActivity {
             finish();
         }
 
-//        if(!(userName == currentUser.getString("name"))) {
+
+        // get the user's information from parse
         ParseQuery<ParseUser> query = ParseUser.getQuery();
         query.whereEqualTo("username", userName);
         query.getFirstInBackground(new GetCallback<ParseUser>() {
@@ -153,6 +159,7 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
 
+    // log the user out of the app
     public void logout(final View v){
         currentUser.logOut();
 
@@ -239,6 +246,7 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
 
+    // saves the image into parse
     private void saveImage(Bitmap thumbnail) {
         ByteArrayOutputStream bytes = new ByteArrayOutputStream();
         thumbnail.compress(Bitmap.CompressFormat.PNG, 100, bytes);

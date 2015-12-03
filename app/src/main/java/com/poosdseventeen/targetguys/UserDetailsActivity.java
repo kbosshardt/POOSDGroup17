@@ -33,6 +33,10 @@ import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Created by Kourtney Bosshardt on 10/25/2015.
+ * View other users profile - same as profileactivity, but for a different user (not the current user)
+ */
 public class UserDetailsActivity extends AppCompatActivity {
 
     private String userName;

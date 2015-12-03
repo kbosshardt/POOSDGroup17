@@ -14,6 +14,11 @@ import com.parse.ParseUser;
 
 import java.util.ArrayList;
 
+
+/**
+ * Created by Kourtney Bosshardt on 10/23/2015.
+ */
+
 public class HomeActivity extends AppCompatActivity {
 
     ArrayList allUsers =  new ArrayList<String>();
@@ -59,6 +64,8 @@ public class HomeActivity extends AppCompatActivity {
     }
 
 
+
+    // log user out of the app by using parse method and going back to the main screen
     public void logout(final View v){
         ParseUser currentUser = ParseUser.getCurrentUser();
         currentUser.logOut();
@@ -72,6 +79,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
 
+    // go to the view interests screen
     public void viewInterests(View v){
         Intent intent = new Intent(HomeActivity.this, CategoryActivity.class);
         // Use TaskStackBuilder to build the back stack and get the PendingIntent
@@ -89,6 +97,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
 
+    // go to the view profule screen
     public void viewProfile(View v){
         Intent intent = new Intent(HomeActivity.this, UserDetailsActivity.class);
 
@@ -107,7 +116,7 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
-
+    // go to the view messages screen
     public void viewMessages(View v){
         Intent intent = new Intent(HomeActivity.this, ViewMessages.class);
 
@@ -125,6 +134,7 @@ public class HomeActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    // go to the search map screen
     public void goToMap(View v){
 
         Intent intent = new Intent(HomeActivity.this, SearchMap.class);

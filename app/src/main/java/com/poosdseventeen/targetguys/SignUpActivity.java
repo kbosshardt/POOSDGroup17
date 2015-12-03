@@ -26,6 +26,11 @@ import com.parse.SignUpCallback;
 import java.util.Arrays;
 import java.util.List;
 
+
+/**
+ * Created by Kourtney Bosshardt on 10/23/2015.
+ */
+
 public class SignUpActivity extends Activity{
 
     private EditText nameText;
@@ -113,6 +118,7 @@ public class SignUpActivity extends Activity{
         return super.onOptionsItemSelected(item);
     }
 
+    // register the user into the parse database
     public void register(final View v){
 
         checkFields();

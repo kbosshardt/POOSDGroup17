@@ -28,6 +28,12 @@ import java.util.List;
 
 import adapters.ExpandableCategoryListAdapter;
 
+
+
+/**
+ * Created by Kourtney Bosshardt on 10/25/2015.
+ */
+
 public class CategoryActivity extends Activity {
 
     ExpandableCategoryListAdapter listAdapter;
@@ -76,6 +82,7 @@ public class CategoryActivity extends Activity {
 
 
 
+    // query the categories from the database
     private void getCategoriesFromDatabase(){
 
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Category");
@@ -94,6 +101,7 @@ public class CategoryActivity extends Activity {
     }
 
 
+    // populate the List<String> categories with the categories from the database
     private void populateCategoriesList(List<ParseObject> categoryList){
         listCategories = new ArrayList<String>();
         for (ParseObject category : categoryList) {
@@ -104,6 +112,8 @@ public class CategoryActivity extends Activity {
         getInterestsFromDatabase(categoryList);
     }
 
+
+    // populate the List<String> interests with the interests from the database
     private void getInterestsFromDatabase(final List<ParseObject> categoryList){
 
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Interests");
@@ -122,6 +132,7 @@ public class CategoryActivity extends Activity {
 
     }
 
+    // relate the interest to their designated category in the database
     private void relateInterestsToCategories(List<ParseObject> interestsList, List<ParseObject> categoryList){
         ParseRelation<ParseObject> relation;
         ParseObject category;
@@ -149,9 +160,6 @@ public class CategoryActivity extends Activity {
 
                 interest = interestsList.get(j);
 
-
-
-
                 // put relation in database
                 if( i == interest.getInt("categoryNumber") ) {
 
@@ -174,6 +182,8 @@ public class CategoryActivity extends Activity {
 
     }
 
+
+    // put the interest under each category in the expandable list adapter
     private void setUpAdapter(){
         // get the listview
         expListView = (ExpandableListView) findViewById(R.id.expList);
@@ -247,7 +257,7 @@ public class CategoryActivity extends Activity {
         });
     }
 
-
+    // save the users interest in the database and go to the home screen
     public void saveInterests(View v){
 
         for (String interestName : userInterests) {
@@ -273,10 +283,6 @@ public class CategoryActivity extends Activity {
 
         Intent intent = new Intent(CategoryActivity.this, HomeActivity.class);
 
-
-//        Intent intent = new Intent(CategoryActivity.this, SearchMap.class);
-//        String distanceString = distanceEditText.getText().toString();
-//        intent.putExtra("distance", distanceString);
 
         // Use TaskStackBuilder to build the back stack and get the PendingIntent
         PendingIntent pendingIntent =

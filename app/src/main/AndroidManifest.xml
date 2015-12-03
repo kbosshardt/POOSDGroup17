@@ -37,17 +37,16 @@
             android:name=".SplashScreen"
             android:label="@string/title_activity_splash_screen"
             android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".SignUpActivity"
@@ -77,7 +76,6 @@
 
             <intent-filter>
                 <action android:name=".HomeActivity" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -91,7 +89,6 @@
 
             <intent-filter>
                 <action android:name=".HomeActivity" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -106,7 +103,6 @@
 
             <intent-filter>
                 <action android:name=".HomeActivity" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -123,7 +119,6 @@
 
             <intent-filter>
                 <action android:name=".ProfileActivity" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
 >
@@ -151,10 +146,7 @@
 
         <uses-library android:name="com.google.android.maps" />
 
-        <activity
-            android:name=".DistanceActivity"
-            android:label="@string/title_activity_distance" >
-        </activity>
+
     </application>
 
 </manifest>

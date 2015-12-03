@@ -8,6 +8,7 @@ import com.parse.ParseObject;
 
 /**
  * Created by Kourtney on 10/23/15.
+ * Sets up the parse database.
  */
 public class ParseApplication extends Application{
     @Override
